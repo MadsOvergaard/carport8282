@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CarportMapper {
-    public static void createCarport (Carport carport){
+    public static void createCarport(Carport carport) {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO Carport (length, width, height) VALUES (?, ?, ?)";
