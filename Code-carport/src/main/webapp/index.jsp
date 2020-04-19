@@ -15,7 +15,7 @@
     <input type="hidden" name="target" value="carport">
 
     <div class="dropdown">
-        <select class="dropbtn">Længde
+        <select class="dropbtn" name="length">Længde
             <option value="" disabled selected>Open this select menu</option>
             <option value="1">One</option>
             <option value="2">Two</option>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="dropdown">
-        <select class="dropbtn">Bredde
+        <select class="dropbtn" name="width">Bredde
             <option value="" disabled selected>Open this select menu</option>
             <option value="1">One</option>
             <option value="2">Two</option>
@@ -34,7 +34,7 @@
     </div>
 
     <div class="dropdown">
-        <select class="dropbtn">Højde
+        <select class="dropbtn" name="height">Højde
             <option value="" disabled selected>Open this select menu</option>
             <option value="1">One</option>
             <option value="2">Two</option>
