@@ -10,11 +10,11 @@ public class CreateCarport extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) {
 
-        double lenght = Double.parseDouble(request.getParameter("lenght"));
+        double length = Double.parseDouble(request.getParameter("length"));
         double width = Double.parseDouble(request.getParameter("width"));
         double height = Double.parseDouble(request.getParameter("height"));
 
-        LogicFacade.createCarport(lenght, width, height);
+        LogicFacade.createCarport(length, width, height);
 
         return "../index";
     }

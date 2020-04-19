@@ -17,28 +17,28 @@
     <div class="dropdown">
         <select class="dropbtn" name="length">Længde
             <option value="" disabled selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
         </select>
     </div>
 
     <div class="dropdown">
         <select class="dropbtn" name="width">Bredde
             <option value="" disabled selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
         </select>
     </div>
-    </div>
+
 
     <div class="dropdown">
         <select class="dropbtn" name="height">Højde
             <option value="" disabled selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
         </select>
     </div>
 
