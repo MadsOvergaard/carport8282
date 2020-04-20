@@ -1,5 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ page import="PresentationLayer.CreateCarport" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,26 +17,27 @@
 
     <div class="dropdown">
         <select class="dropbtn" name="length">Længde
-            <option value="" disabled selected>Open this select menu</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="" disabled selected>Tryk her for at vælge længde</option>
+            <c:forEach var="i" items="${requestScope.listLength}" varStatus="count">
+            <option value="${}">
+                    ${i}
+            </option>
+            </c:forEach>
         </select>
     </div>
 
     <div class="dropdown">
         <select class="dropbtn" name="width">Bredde
-            <option value="" disabled selected>Open this select menu</option>
+            <option value="" disabled selected>Tryk her for at vælge bredde</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
         </select>
     </div>
 
-
     <div class="dropdown">
         <select class="dropbtn" name="height">Højde
-            <option value="" disabled selected>Open this select menu</option>
+            <option value="" disabled selected>Tryk her for at vælge højde</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

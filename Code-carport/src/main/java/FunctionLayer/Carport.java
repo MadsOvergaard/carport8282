@@ -2,17 +2,17 @@ package FunctionLayer;
 
 public class Carport {
 
-    private double length;
-    private double width;
-    private double height;
+    private int length;
+    private int width;
+    private int height;
 
-    public Carport(double length, double width, double height) {
+    public Carport(int length, int width, int height) {
         this.length = length;
         this.width = width;
         this.height = height;
     }
 
-    public double getLength() {
+    public int getLength() {
         return length;
     }
 
@@ -20,7 +20,7 @@ public class Carport {
         this.length = length;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
@@ -28,7 +28,7 @@ public class Carport {
         this.width = width;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
