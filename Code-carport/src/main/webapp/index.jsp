@@ -14,74 +14,11 @@
 <%--  todo lav en database som den henter værdierne fra  --%>
 <form action="FrontController" method="post">
     <input type="hidden" name="target" value="carport">
-
-    <div class="dropdown">
-        <select class="dropbtn" name="length">Længde
-            <option value="" disabled selected>Vælg længde</option>
-            <option value="240">240 cm</option>
-            <option value="270">270 cm</option>
-            <option value="300">300 cm</option>
-            <option value="330">330 cm</option>
-            <option value="360">360 cm</option>
-            <option value="390">390 cm</option>
-            <option value="420">420 cm</option>
-            <option value="450">450 cm</option>
-            <option value="480">480 cm</option>
-            <option value="510">510 cm</option>
-            <option value="540">540 cm</option>
-            <option value="570">570 cm</option>
-            <option value="600">600 cm</option>
-            <option value="630">630 cm</option>
-            <option value="660">660 cm</option>
-            <option value="690">690 cm</option>
-            <option value="720">720 cm</option>
-            <option value="750">750 cm</option>
-            <option value="780">780 cm</option>
-        </select>
-    </div>
-    <div class="dropdown">
-        <select class="dropbtn" name="width">Bredde
-            <option value="" disabled selected>Vælg bredde</option>
-            <option value="240">240 cm</option>
-            <option value="270">270 cm</option>
-            <option value="300">300 cm</option>
-            <option value="330">330 cm</option>
-            <option value="360">360 cm</option>
-            <option value="390">390 cm</option>
-            <option value="420">420 cm</option>
-            <option value="450">450 cm</option>
-            <option value="480">480 cm</option>
-            <option value="510">510 cm</option>
-            <option value="540">540 cm</option>
-            <option value="570">570 cm</option>
-            <option value="600">600 cm</option>
-            <option value="630">630 cm</option>
-            <option value="660">660 cm</option>
-            <option value="690">690 cm</option>
-            <option value="720">720 cm</option>
-            <option value="750">750 cm</option>
-        </select>
-    </div>
-    <div class="dropdown">
-        <select class="dropbtn" name="height">Højde
-            <option value="" disabled selected>Vælg højde</option>
-            <option value="300">300 cm</option>
-            <option value="310">310 cm</option>
-            <option value="320">320 cm</option>
-            <option value="330">330 cm</option>
-            <option value="340">340 cm</option>
-            <option value="350">350 cm</option>
-            <option value="360">360 cm</option>
-            <option value="370">370 cm</option>
-            <option value="380">380 cm</option>
-            <option value="390">390 cm</option>
-            <option value="400">400 cm</option>
-        </select>
-    </div>
+    <%@include file="includes/LWHDropdownMenu.jsp"%>
     <br>
-    
     <%-- todo gør så det her også bliver sendt til databsen --%>
-    <h1>Skal taget være med rejsning</h1>
+    <h2>Skal taget være med rejsning</h2>
+    <h3>Hvis nej kommer taget med at plasttrapezplader </h3>
     <input type="radio" name="checkbox" value="no"/> Nej
     <input type="radio" name="checkbox" value="yes"/> Ja
     <br>
@@ -94,7 +31,6 @@
             </c:forEach>
         </select>
     </div>
-
     <%-- todo gør så det her også bliver sendt til databsen --%>
     <div class="dropdown">
         <select class="dropbtn" name="slope">
@@ -109,6 +45,62 @@
         </select>
     </div>
 
+<br>
+    <h2>Skal der være redskabsrum på carporten</h2>
+<br>
+    <input type="radio" name="checkbox2" value="no"/> Nej
+    <input type="radio" name="checkbox2" value="yes"/> Ja
+<br>
+    <h2>Hvis ja, så skal du vælge bredde og længde her</h2>
+    <div class="dropdown">
+        <select class="dropbtn" name="shackWidth">
+            <option value="" disabled selected>Vælg skur bredde her</option>
+            <option value="100">Hele carportens bredde</option>
+            <option value="50">Halvdelen af carportens bredde</option>
+
+        </select>
+        <select class="dropbtn" name="shackLength">
+            <option value="" disabled selected>Vælg skur længde her</option>
+            <option value="150">150 cm</option>
+            <option value="180">180 cm</option>
+            <option value="210">210 cm</option>
+            <option value="240">240 cm</option>
+            <option value="270">270 cm</option>
+            <option value="300">300 cm</option>
+            <option value="330">330 cm</option>
+            <option value="360">360 cm</option>
+            <option value="390">390 cm</option>
+            <option value="420">420 cm</option>
+            <option value="450">450 cm</option>
+            <option value="480">480 cm</option>
+            <option value="510">510 cm</option>
+            <option value="540">540 cm</option>
+            <option value="570">570 cm</option>
+            <option value="600">600 cm</option>
+            <option value="630">630 cm</option>
+            <option value="660">660 cm</option>
+            <option value="690">690 cm</option>
+        </select>
+    </div>
+<br>
+    <h2>Vælg beklædning til carporten og skuret her</h2>
+    <div class="dropdown">
+        <select class="dropbtn" name="carportMats">
+            <option value="" disabled selected>Vælg carport beklædning her</option>
+            <c:forEach var="i" items="${CarportMapper.cladding()}" varStatus="count">
+                <option value="${count.index}">${i.toString()}</option>
+            </c:forEach>
+        </select>
+
+        <select class="dropbtn" name="shackMats">
+            <option value="" disabled selected>Vælg skurets beklædning her</option>
+            <c:forEach var="i" items="${CarportMapper.cladding()}" varStatus="count">
+                <option value="${count.index}">${i.toString()}</option>
+            </c:forEach>
+        </select>
+    </div>
+<br>
+<br>
 <br>
 <br>
 <br>
