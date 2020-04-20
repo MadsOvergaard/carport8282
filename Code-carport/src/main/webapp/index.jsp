@@ -1,5 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@page import="DBAccess.CarportMapper" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,23 +65,85 @@
     <div class="dropdown">
         <select class="dropbtn" name="height">Højde
             <option value="" disabled selected>Vælg højde</option>
-           <option value="300">300 cm </option>
-           <option value="310">310 cm </option>
-           <option value="320">320 cm </option>
-           <option value="330">330 cm </option>
-           <option value="340">340 cm </option>
-           <option value="350">350 cm </option>
-           <option value="360">360 cm </option>
-           <option value="370">370 cm </option>
-           <option value="380">380 cm </option>
-           <option value="390">390 cm </option>
-           <option value="400">400 cm </option>
+            <option value="300">300 cm</option>
+            <option value="310">310 cm</option>
+            <option value="320">320 cm</option>
+            <option value="330">330 cm</option>
+            <option value="340">340 cm</option>
+            <option value="350">350 cm</option>
+            <option value="360">360 cm</option>
+            <option value="370">370 cm</option>
+            <option value="380">380 cm</option>
+            <option value="390">390 cm</option>
+            <option value="400">400 cm</option>
         </select>
     </div>
+    <br>
+    
+    <%-- todo gør så det her også bliver sendt til databsen --%>
+    <h1>Skal taget være med rejsning</h1>
+    <input type="radio" name="checkbox" value="no"/> Nej
+    <input type="radio" name="checkbox" value="yes"/> Ja
+    <br>
+    <h2>Hvis du har valgt rejsning så kan du vælge tagtype og hældning her</h2>
+    <div class="dropdown">
+        <select class="dropbtn" name="roofType">
+            <option value="" disabled selected>Vælg tagtype og farven her</option>
+            <c:forEach var="i" items="${CarportMapper.RoofType()}" varStatus="count">
+                <option value="${count.index}">${i.toString()}</option>
+            </c:forEach>
+        </select>
+    </div>
+
+    <%-- todo gør så det her også bliver sendt til databsen --%>
+    <div class="dropdown">
+        <select class="dropbtn" name="slope">
+            <option value="" disabled selected>Vælg hældning her</option>
+            <option value="15">15 grader</option>
+            <option value="20">20 grader</option>
+            <option value="25">25 grader</option>
+            <option value="30">30 grader</option>
+            <option value="35">35 grader</option>
+            <option value="40">40 grader</option>
+            <option value="45">45 grader</option>
+        </select>
+    </div>
+
+<br>
+<br>
+<br>
 
     <input type="submit" value="Bestil carport">
 </form>
 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <table>
     <tr>

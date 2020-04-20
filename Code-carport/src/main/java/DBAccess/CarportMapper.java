@@ -1,11 +1,10 @@
 package DBAccess;
 
 import FunctionLayer.Carport;
+import FunctionLayer.LoginSampleException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class CarportMapper {
     public static void createCarport(Carport carport) {
@@ -22,4 +21,25 @@ public class CarportMapper {
             e.printStackTrace();
         }
     }
+
+    public static ArrayList<String> RoofType() throws LoginSampleException {
+        ArrayList<String> roof = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM Carports.rooftype";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("roofID");
+                String roofType = rs.getString("type");
+                roof.add(roofType);
+            }
+
+            return roof;
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
 }
+
