@@ -6,21 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Projektskabelon-master" />
-        <module name="Code-carport" />
-        <module name="ProjektSkabelon-master" />
-        <module name="Projektskabelon" />
         <module name="prejektSkabelon" />
+        <module name="Code-carport" />
+        <module name="Projektskabelon-master" />
+        <module name="Projektskabelon" />
+        <module name="ProjektSkabelon-master" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Code-carport" options="-endorseddirs &quot;C:\Users\Mads\Desktop\Semester projekt carport\Code-carport\target/endorsed&quot;" />
-      <module name="ProjektSkabelon-master" options="-endorseddirs &quot;C:/Users/Mads/Desktop/Semester projekt carport/Code-carport/target/endorsed&quot;" />
-      <module name="Projektskabelon" options="-endorseddirs C:/Users/Mads/Desktop/Semester projekt carport/Code-carport/target/endorsed" />
-      <module name="Projektskabelon-master" options="-endorseddirs C:/Users/Mads/Desktop/Semester projekt carport/Code-carport/target/endorsed" />
-      <module name="prejektSkabelon" options="-endorseddirs &quot;C:/Users/Mads/Desktop/Semester projekt carport/Code-carport/target/endorsed&quot;" />
+      <module name="ProjektSkabelon-master" options="-endorseddirs &quot;$PROJECT_DIR$/../../../../../../Mads/Desktop/Semester projekt carport/Code-carport/target/endorsed&quot;" />
+      <module name="Projektskabelon" options="-endorseddirs $PROJECT_DIR$/../../../../../../Mads/Desktop/Semester projekt carport/Code-carport/target/endorsed" />
+      <module name="Projektskabelon-master" options="-endorseddirs $PROJECT_DIR$/../../../../../../Mads/Desktop/Semester projekt carport/Code-carport/target/endorsed" />
+      <module name="prejektSkabelon" options="-endorseddirs &quot;$PROJECT_DIR$/../../../../../../Mads/Desktop/Semester projekt carport/Code-carport/target/endorsed&quot;" />
     </option>
   </component>
 </project>

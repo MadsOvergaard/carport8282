@@ -16,31 +16,58 @@
 
     <div class="dropdown">
         <select class="dropbtn" name="length">Længde
-            <option value="" disabled selected>Open this select menu</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="" disabled selected>Vælg længde</option>
+            <option value="1">240 cm</option>
+            <option value="2">270 cm</option>
+            <option value="3">300 cm</option>
+            <option value="4">330 cm</option>
+            <option value="5">360 cm</option>
+            <option value="6">390 cm</option>
+            <option value="7">420 cm</option>
+            <option value="8">450 cm</option>
+            <option value="9">480 cm</option>
+            <option value="10">510 cm</option>
+            <option value="11">540 cm</option>
+            <option value="12">570 cm</option>
+            <option value="13">600 cm</option>
+            <option value="14">630 cm</option>
+            <option value="15">660 cm</option>
+            <option value="16">690 cm</option>
+            <option value="17">720 cm</option>
+            <option value="18">750 cm</option>
+            <option value="18">780 cm</option>
+
+
         </select>
     </div>
 
     <div class="dropdown">
         <select class="dropbtn" name="width">Bredde
-            <option value="" disabled selected>Open this select menu</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="" disabled selected>Vælg bredde</option>
+            <option value="1">240 cm</option>
+            <option value="2">270 cm</option>
+            <option value="3">300 cm</option>
+            <option value="4">330 cm</option>
+            <option value="5">360 cm</option>
+            <option value="6">390 cm</option>
+            <option value="7">420 cm</option>
+            <option value="8">450 cm</option>
+            <option value="9">480 cm</option>
+            <option value="10">510 cm</option>
+            <option value="11">540 cm</option>
+            <option value="12">570 cm</option>
+            <option value="13">600 cm</option>
+            <option value="14">630 cm</option>
+            <option value="15">660 cm</option>
+            <option value="16">690 cm</option>
+            <option value="17">720 cm</option>
+            <option value="18">750 cm</option>
+
         </select>
     </div>
 
 
-    <div class="dropdown">
-        <select class="dropbtn" name="height">Højde
-            <option value="" disabled selected>Open this select menu</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-    </div>
+
 
     <input type="submit" value="Bestil carport">
 </form>
