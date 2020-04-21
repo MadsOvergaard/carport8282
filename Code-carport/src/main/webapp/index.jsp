@@ -19,22 +19,24 @@
     <%-- todo gør så det her også bliver sendt til databsen --%>
     <h2>Skal taget være med rejsning</h2>
     <h3>Hvis nej kommer taget med at plasttrapezplader </h3>
-    <input type="radio" name="checkbox" value="no"/> Nej
-    <input type="radio" name="checkbox" value="yes"/> Ja
+    <input type="radio" name="checkbox" value="yes"/> Nej
+    <input type="radio" name="checkbox" value="True"/> Ja
     <br>
+
     <h2>Hvis du har valgt rejsning så kan du vælge tagtype og hældning her</h2>
     <div class="dropdown">
         <select class="dropbtn" name="roofType">
             <option value="" disabled selected>Vælg tagtype og farven her</option>
             <c:forEach var="i" items="${CarportMapper.RoofType()}" varStatus="count">
-                <option value="${count.index}">${i.toString()}</option>
+                <option value="${count.index +1}">${i.toString()}</option>
             </c:forEach>
         </select>
     </div>
+
     <%-- todo gør så det her også bliver sendt til databsen --%>
     <div class="dropdown">
         <select class="dropbtn" name="slope">
-            <option value="" disabled selected>Vælg hældning her</option>
+            <option value="0" disabled selected>Vælg hældning her</option>
             <option value="15">15 grader</option>
             <option value="20">20 grader</option>
             <option value="25">25 grader</option>
@@ -49,7 +51,7 @@
     <h2>Skal der være redskabsrum på carporten</h2>
 <br>
     <input type="radio" name="checkbox2" value="no"/> Nej
-    <input type="radio" name="checkbox2" value="yes"/> Ja
+    <input type="radio" name="checkbox2" value="True"/> Ja
 <br>
     <h2>Hvis ja, så skal du vælge bredde og længde her</h2>
     <div class="dropdown">
