@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <div class="dropdown">
+    <%-- todo gør så det her kommer fra noget for each? --%>
     <select class="dropbtn" name="length">Længde
         <option value="" disabled selected>Vælg længde</option>
         <option value="240">240 cm</option>

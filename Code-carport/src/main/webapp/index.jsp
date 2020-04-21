@@ -14,7 +14,7 @@
     <input type="submit" value="adminsiden version alpha 1.0">
 </form>
 <h1>Byg din carport her</h1>
-<%--  todo lav en database som den henter værdierne fra  --%>
+
 <form action="FrontController" method="post">
     <input type="hidden" name="target" value="carport">
     <%@include file="includes/LWHDropdownMenu.jsp" %>
@@ -38,6 +38,7 @@
 
     <div class="dropdown">
         <select class="dropbtn" name="slope">
+            <%-- todo gør så det her kommer fra noget for each? --%>
             <option value="0" disabled selected>Vælg hældning her</option>
             <option value="15">15 grader</option>
             <option value="20">20 grader</option>
@@ -64,6 +65,7 @@
 
         </select>
         <select class="dropbtn" name="shackLength">
+            <%-- todo gør så det her kommer fra noget for each? --%>
             <option value="" disabled selected>Vælg skur længde her</option>
             <option value="150">150 cm</option>
             <option value="180">180 cm</option>
@@ -89,7 +91,7 @@
     <br>
     <h2>Vælg beklædning til carporten og skuret her</h2>
     <div class="dropdown">
-        
+
         <select class="dropbtn" name="carportMats">
             <option value="" disabled selected>Vælg carport beklædning her</option>
             <c:forEach var="i" items="${CarportMapper.cladding()}" varStatus="count">
