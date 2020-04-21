@@ -9,14 +9,17 @@
     <title>Welcome page</title>
 </head>
 <body>
-
+<form action="FrontController" method="post">
+    <input type="hidden" name="target" value="admin">
+    <input type="submit" value="adminsiden version alpha 1.0">
+</form>
 <h1>Byg din carport her</h1>
 <%--  todo lav en database som den henter værdierne fra  --%>
 <form action="FrontController" method="post">
     <input type="hidden" name="target" value="carport">
-    <%@include file="includes/LWHDropdownMenu.jsp"%>
+    <%@include file="includes/LWHDropdownMenu.jsp" %>
     <br>
-    <%-- todo gør så det her også bliver sendt til databsen --%>
+
     <h2>Skal taget være med rejsning</h2>
     <h3>Hvis nej kommer taget med at plasttrapezplader </h3>
     <input type="radio" name="checkbox" value="yes"/> Nej
@@ -28,12 +31,11 @@
         <select class="dropbtn" name="roofType">
             <option value="" disabled selected>Vælg tagtype og farven her</option>
             <c:forEach var="i" items="${CarportMapper.RoofType()}" varStatus="count">
-                <option value="${count.index +1}">${i.toString()}</option>
+                <option value="${count.current}">${i.toString()}</option>
             </c:forEach>
         </select>
     </div>
 
-    <%-- todo gør så det her også bliver sendt til databsen --%>
     <div class="dropdown">
         <select class="dropbtn" name="slope">
             <option value="0" disabled selected>Vælg hældning her</option>
@@ -47,12 +49,12 @@
         </select>
     </div>
 
-<br>
+    <br>
     <h2>Skal der være redskabsrum på carporten</h2>
-<br>
-    <input type="radio" name="checkbox2" value="no"/> Nej
+    <br>
+    <input type="radio" name="checkbox2" value="yes"/> Nej
     <input type="radio" name="checkbox2" value="True"/> Ja
-<br>
+    <br>
     <h2>Hvis ja, så skal du vælge bredde og længde her</h2>
     <div class="dropdown">
         <select class="dropbtn" name="shackWidth">
@@ -84,94 +86,33 @@
             <option value="690">690 cm</option>
         </select>
     </div>
-<br>
+    <br>
     <h2>Vælg beklædning til carporten og skuret her</h2>
     <div class="dropdown">
+        
         <select class="dropbtn" name="carportMats">
             <option value="" disabled selected>Vælg carport beklædning her</option>
             <c:forEach var="i" items="${CarportMapper.cladding()}" varStatus="count">
-                <option value="${count.index}">${i.toString()}</option>
+                <option value="${count.current}">${i.toString()}</option>
             </c:forEach>
         </select>
 
         <select class="dropbtn" name="shackMats">
             <option value="" disabled selected>Vælg skurets beklædning her</option>
             <c:forEach var="i" items="${CarportMapper.cladding()}" varStatus="count">
-                <option value="${count.index}">${i.toString()}</option>
+                <option value="${count.current}">${i.toString()}</option>
             </c:forEach>
         </select>
     </div>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <input type="submit" value="Bestil carport">
 </form>
 
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<table>
-    <tr>
-        <td>Login</td>
-        <td>
-            <form name="login" action="FrontController" method="POST">
-                <input type="hidden" name="target" value="login">
-                Email:<br>
-                <input type="text" name="email" value="someone@nowhere.com">
-                <br>
-                Password:<br>
-                <input type="password" name="password" value="sesam">
-                <br>
-                <input type="submit" value="Submit">
-            </form>
-        </td>
-        <td>Or Register</td>
-        <td>
-            <form name="register" action="FrontController" method="POST">
-                <input type="hidden" name="target" value="register">
-                Email:<br>
-                <input type="text" name="email" value="someone@nowhere.com">
-                <br>
-                Password:<br>
-                <input type="password" name="password1" value="sesam">
-                <br>
-                Retype Password:<br>
-                <input type="password" name="password2" value="sesam">
-                <br>
-                <input type="submit" value="Submit">
-            </form>
-        </td>
-    </tr>
-</table>
 
 <c:if test="${requestScope.error!= null}">
     <h2>Error ! </h2>

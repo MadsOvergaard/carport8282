@@ -15,8 +15,8 @@ public class LogicFacade {
         return user;
     }
 
-    public static Carport createCarport(int length, int width, int height, boolean slope, String roofType, int slopeAngle) {
-        Carport carport = new Carport(length, width, height, slope, roofType, slopeAngle);
+    public static Carport createCarport(int length, int width, int height, boolean slope, String roofType, int slopeAngle, boolean shack, int shackLength, int shackWidth, String carportCladding, String shackCladding) {
+        Carport carport = new Carport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, carportCladding, shackCladding);
         CarportMapper.createCarport(carport);
         return carport;
     }

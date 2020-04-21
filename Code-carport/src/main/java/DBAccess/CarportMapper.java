@@ -10,7 +10,7 @@ public class CarportMapper {
     public static void createCarport(Carport carport) {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Carport (length, width, height, slope, roof, slopeAngle) VALUES (?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO Carport (length, width, height, slope, roof, slopeAngle, shack, shackLength, shackWidth, carportCladding, shackCladding) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, carport.getLength());
             ps.setInt(2, carport.getWidth());
@@ -18,8 +18,12 @@ public class CarportMapper {
             ps.setBoolean(4, carport.isSlope());
             ps.setString(5, carport.getRoofType());
             ps.setInt(6, carport.getSlopeAngle());
+            ps.setBoolean(7, carport.isShack());
+            ps.setInt(8, carport.getShackLength());
+            ps.setInt(9, carport.getShackWidth());
+            ps.setString(10, carport.getCarportCladding());
+            ps.setString(11, carport.getShackCladding());
             ps.executeUpdate();
-
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
@@ -47,7 +51,8 @@ public class CarportMapper {
 
     public static ArrayList<String> cladding() throws LoginSampleException {
         ArrayList<String> clad = new ArrayList<>();
-        try {Connection con = Connector.connection();
+        try {
+            Connection con = Connector.connection();
             String SQL = "SELECT * FROM Carports.mats";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = ps.executeQuery();

@@ -11,21 +11,34 @@ public class CreateCarport extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) {
 
-        String defaultRoofType = "plasttrapezplader";
-        int defaultSlopeAngle = 0;
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
         boolean slope = Boolean.parseBoolean(request.getParameter("checkbox"));
-        String roofType = request.getParameter("roofType");
-
+        String roofType;
+        int slopeAngle;
+        int shackLength;
+        int shackWidth;
+        boolean shack = Boolean.parseBoolean(request.getParameter("checkbox2"));
+        String carportCladding = request.getParameter("carportMats");
+        String shackCladding = request.getParameter("shackMats");
 
         if (slope == false) {
-            LogicFacade.createCarport(length, width, height, slope, defaultRoofType, defaultSlopeAngle);
+            roofType = "plasttrapezplader";
+            slopeAngle = 0;
         } else {
-            int slopeAngle = Integer.parseInt(request.getParameter("slope"));
-            LogicFacade.createCarport(length, width, height, slope, roofType, slopeAngle);
+            roofType = request.getParameter("roofType");
+            slopeAngle = Integer.parseInt(request.getParameter("slope"));
         }
+        if (shack == false) {
+            shackLength = 0;
+            shackWidth = 0;
+        } else {
+            shackLength = Integer.parseInt(request.getParameter("shackLength"));
+            shackWidth = Integer.parseInt(request.getParameter("shackWidth"));
+        }
+        LogicFacade.createCarport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, carportCladding, shackCladding);
+
         return "../index";
     }
 }
