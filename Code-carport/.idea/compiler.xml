@@ -7,10 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="prejektSkabelon" />
-        <module name="Code-carport" />
-        <module name="Projektskabelon-master" />
         <module name="ProjektSkabelon-master" />
+        <module name="Projektskabelon-master" />
         <module name="Projektskabelon" />
+        <module name="Code-carport" />
       </profile>
     </annotationProcessing>
   </component>

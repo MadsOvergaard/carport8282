@@ -51,6 +51,7 @@
     </div>
 
     <br>
+    <%-- todo der skal være noget (enable) her, så hvis man har checket nej, så kan man ikke bruge knapperne--%>
     <h2>Skal der være redskabsrum på carporten</h2>
     <br>
     <input type="radio" name="checkbox2" value="yes"/> Nej
