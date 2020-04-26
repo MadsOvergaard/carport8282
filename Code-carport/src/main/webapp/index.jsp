@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="CSS/CarportDropdown.css" type="text/css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Welcome page</title>
+    <script type="text/javascript" src="includes/Check.js"></script>
 </head>
 <body>
 <form action="FrontController" method="post">
@@ -22,13 +23,13 @@
 
     <h2>Skal taget være med rejsning</h2>
     <h3>Hvis nej kommer taget med at plasttrapezplader </h3>
-    <input type="radio" name="checkbox" value="yes"/> Nej
-    <input type="radio" name="checkbox" value="True"/> Ja
+    <input type="radio" name="checkbox" value="yes" onchange="check3()" checked/> Nej
+    <input type="radio" name="checkbox" value="True" onchange="check4()"/> Ja
     <br>
 
     <h2>Hvis du har valgt rejsning så kan du vælge tagtype og hældning her</h2>
-    <div class="dropdown">
-        <select class="dropbtn" name="roofType">
+    <div class="dropdown" >
+        <select class="dropbtn" name="roofType" id="roofType" disabled>
             <option value="" disabled selected>Vælg tagtype og farven her</option>
             <c:forEach var="i" items="${CarportMapper.RoofType()}" varStatus="count">
                 <option value="${count.current}">${i.toString()}</option>
@@ -37,7 +38,7 @@
     </div>
 
     <div class="dropdown">
-        <select class="dropbtn" name="slope">
+        <select class="dropbtn" name="slope" id="slope" disabled>
             <%-- todo gør så det her kommer fra noget for each? --%>
             <option value="0" disabled selected>Vælg hældning her</option>
             <option value="15">15 grader</option>
@@ -54,18 +55,20 @@
     <%-- todo der skal være noget (enable) her, så hvis man har checket nej, så kan man ikke bruge knapperne--%>
     <h2>Skal der være redskabsrum på carporten</h2>
     <br>
-    <input type="radio" name="checkbox2" value="yes"/> Nej
-    <input type="radio" name="checkbox2" value="True"/> Ja
+
+    <input type="radio" name="checkbox2" value="yes" onchange="check()" checked/> Nej
+    <input type="radio" name="checkbox2" value="True" onchange="check2()"/> Ja
     <br>
     <h2>Hvis ja, så skal du vælge bredde og længde her</h2>
     <div class="dropdown">
-        <select class="dropbtn" name="shackWidth">
+        <select class="dropbtn" name="shackWidth" id="shackWidth" disabled>
             <option value="" disabled selected>Vælg skur bredde her</option>
             <option value="100">Hele carportens bredde</option>
             <option value="50">Halvdelen af carportens bredde</option>
-
         </select>
-        <select class="dropbtn" name="shackLength">
+    </div>
+    <div class="dropdown">
+        <select class="dropbtn" name="shackLength" id="shackLength" disabled>
             <%-- todo gør så det her kommer fra noget for each? --%>
             <option value="" disabled selected>Vælg skur længde her</option>
             <option value="150">150 cm</option>
