@@ -21,7 +21,7 @@ public class CreateCarport extends Command {
         int shackWidth;
         boolean shack = Boolean.parseBoolean(request.getParameter("checkbox2"));
         String carportCladding = request.getParameter("carportMats");
-        String shackCladding = request.getParameter("shackMats");
+        String shackCladding = request.getParameter("carportMats");
 
         if (slope == false) {
             roofType = "plasttrapezplader";

@@ -1,4 +1,4 @@
-
+// javascript som ændre om dropdown menuerne er tilgængelige eller ej i index.jsp
 function check() {
     document.getElementById("shackWidth").disabled = true;
     document.getElementById("shackLength").disabled = true;
