@@ -26,7 +26,7 @@
     <br>
     <%@include file="includes/shackDropdownMenu.jsp" %>
     <br>
-    <%@include file="includes/claddingMenu.jsp" %>
+    <%@include file="includes/claddingDropdownMenu.jsp" %>
     <br>
     <br>
 
