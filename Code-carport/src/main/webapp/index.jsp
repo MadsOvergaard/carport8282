@@ -1,19 +1,20 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@page import="DBAccess.CarportMapper" %>
+
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="CSS/CarportDropdown.css" type="text/css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Welcome page</title>
     <script type="text/javascript" src="includes/Check.js"></script>
+    <title>Welcome page</title>
 </head>
 <body>
 <form action="FrontController" method="post">
     <input type="hidden" name="target" value="admin">
     <input type="submit" value="adminsiden version alpha 1.0">
 </form>
+
 <h1>Byg din carport her</h1>
 
 <form action="FrontController" method="post">

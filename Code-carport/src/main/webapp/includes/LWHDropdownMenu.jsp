@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+
 <div class="dropdown">
-    <%-- todo gør så det her kommer fra noget for each? --%>
     <select name="length">Længde
         <option value="" disabled selected>Vælg længde</option>
         <% int lengthIndex;
@@ -9,9 +9,9 @@
                 out.print("<option value=\"" + lengthIndex + "\">" + lengthIndex + " cm</option> <br>");
             }
         %>
-
     </select>
 </div>
+
 <div class="dropdown">
     <select name="width">Bredde
         <option value="" disabled selected>Vælg bredde</option>
@@ -22,6 +22,7 @@
         %>
     </select>
 </div>
+
 <div class="dropdown">
     <select name="height">Højde
         <option value="" disabled selected>Vælg højde</option>
