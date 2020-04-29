@@ -10,7 +10,7 @@
 <body>
 
 <div class="textOverImage"
-     style="background-image:url(../pics/træstolpe.jpg)"
+     style="background-image:url(../pics/traestolpe.jpg)"
      data-text="Træstolpen er en opretstående, fast forankret bjælke, der støtter eller bærer øvrige dele i en bygningskonstruktion">
 </div>
 
@@ -20,7 +20,7 @@
 </div>
 
 <div class="textOverImage"
-     style="background-image:url(../pics/spærbillede.jpg)"
+     style="background-image:url(../pics/spaerbillede.jpg)"
      data-text="Et spær er den mest elementære del af skelettet i en tagkonstruktion, altså skelettet af taget">
 </div>
 
@@ -30,7 +30,7 @@
 </div>
 
 <div class="textOverImage"
-     style="background-image:url(../pics/sombillede.jpg)"
+     style="background-image:url(../pics/soembillede.jpg)"
      data-text="Et søm er en lille, spids metalpind forsynet med et (fladt) hoved og beregnet til at blive slået ind i noget, som regel med en hammer, for at samle eller fastgøre det">
 </div>
 
@@ -40,7 +40,7 @@
 </div>
 
 <div class="textOverImage"
-     style="background-image:url(../pics/Hulbond.jpg)"
+     style="background-image:url(../pics/hulbaand.jpg)"
      data-text="Hulbånd er et langt, smalt stykke metal med huller i der fx bruges til at bære et vandrør eller sammenholde en tømmerkonstruktion, idet båndet fastgøres eller låses med søm eller skruer gennem hullerne">
 </div>
 </body>
