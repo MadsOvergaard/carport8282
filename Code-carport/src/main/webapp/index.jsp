@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="CSS/CarportDropdown.css" type="text/css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,9 +30,9 @@
     <%@include file="includes/claddingDropdownMenu.jsp" %>
     <br>
     <br>
-
     <input type="submit" value="Bestil carport">
 </form>
+
 
 <c:if test="${requestScope.error!= null}">
     <h2>Error ! </h2>
