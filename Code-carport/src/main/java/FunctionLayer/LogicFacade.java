@@ -25,4 +25,8 @@ public class LogicFacade {
         CarportMapper.updatePriceInDB(price, id);
     }
 
+    public static void addMaterial (String type, int length, int width, int height, String detail, int price){
+        CarportMapper.addMaterialInDB(type, length, width, height, detail, price);
+    }
+
 }

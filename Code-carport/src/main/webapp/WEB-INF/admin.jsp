@@ -12,11 +12,25 @@
     ${requestScope.materialList}
 </div>
 <div>
+    <p>Updater prisen på noget her</p>
     <form action="FrontController" method="post">
-        <input type="hidden" name="Target" value="updateDBPrice">
+        <input type="hidden" name="target" value="updateDBPrice">
         <input type="text" name="updateID" placeholder="Skriv ID her">
         <input type="text" name="updatePrice" placeholder="Skriv ny pris her">
         <input type="submit" value="Updater pris">
+    </form>
+</div>
+<div>
+    <p>Tilføj et nyt materiale her obs. længden skal være i cm og resten i mm.</p>
+    <form action="FrontController" method="post">
+        <input type="hidden" name="target" value="addDBMaterial">
+        <input type="text" name="newMaterial" placeholder="Skriv materiale her">
+        <input type="text" name="materialLength" placeholder="Skriv materiale længden her">
+        <input type="text" name="materialWidth" placeholder="Skriv materiale bredden her">
+        <input type="text" name="materialHeight" placeholder="Skriv materiale højden her">
+        <input type="text" name="materialDetail" placeholder="Skriv materiale beskrivelsen her">
+        <input type="text" name="materialPrice" placeholder="Skriv materiale prisen her">
+        <input type="submit" value="Updater materiale">
     </form>
 </div>
 <div>

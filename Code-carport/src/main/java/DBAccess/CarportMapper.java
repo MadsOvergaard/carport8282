@@ -106,4 +106,22 @@ public class CarportMapper {
             e.printStackTrace();
         }
     }
+
+    public static void addMaterialInDB(String type, int length, int width, int height, String detail, int price) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO Materials (materialType, materialLength, materialWidth, materialHeight, materialDetail, price) " +
+                    "values (?,?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, type);
+            ps.setInt(2,length);
+            ps.setInt(3, width);
+            ps.setInt(4, height);
+            ps.setString(5, detail);
+            ps.setInt(6, price);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
