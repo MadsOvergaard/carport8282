@@ -15,17 +15,18 @@ public class LogicFacade {
         return user;
     }
 
-    public static Carport createCarport(int length, int width, int height, boolean slope, String roofType, int slopeAngle, boolean shack, int shackLength, int shackWidth, String carportCladding, String shackCladding) {
-        Carport carport = new Carport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, carportCladding, shackCladding);
+    public static Carport createCarport(int length, int width, int height, boolean slope, String roofType, int slopeAngle,
+                                        boolean shack, int shackLength, int shackWidth, String cladding) {
+        Carport carport = new Carport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, cladding);
         CarportMapper.createCarport(carport);
         return carport;
     }
 
-    public static void updatePrice (double price, int id){
+    public static void updatePrice(double price, int id) {
         CarportMapper.updatePriceInDB(price, id);
     }
 
-    public static void addMaterial (String type, int length, int width, int height, String detail, int price){
+    public static void addMaterial(String type, int length, int width, int height, String detail, int price) {
         CarportMapper.addMaterialInDB(type, length, width, height, detail, price);
     }
 

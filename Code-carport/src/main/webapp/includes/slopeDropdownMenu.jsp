@@ -13,7 +13,7 @@
 <div class="dropdown" >
     <select  name="roofType" id="roofType" disabled>
         <option value="" disabled selected>Vælg tagtype og farven her</option>
-        <c:forEach var="i" items="${CarportMapper.RoofType()}" varStatus="count">
+        <c:forEach var="i" items="${CarportMapper.roofMaterial()}" varStatus="count">
             <option value="${count.current}">${i.toString()}</option>
         </c:forEach>
     </select>

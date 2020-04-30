@@ -11,10 +11,10 @@ public class Carport {
     private boolean shack;
     private int shackLength;
     private int shackWidth;
-    private String carportCladding;
-    private String shackCladding;
+    private String cladding;
 
-    public Carport(int length, int width, int height, boolean slope, String roofType, int slopeAngle, boolean shack, int shackLength, int shackWidth, String carportCladding, String shackCladding) {
+    public Carport(int length, int width, int height, boolean slope, String roofType,
+                   int slopeAngle, boolean shack, int shackLength, int shackWidth, String carportCladding) {
         this.length = length;
         this.width = width;
         this.height = height;
@@ -24,8 +24,7 @@ public class Carport {
         this.shack = shack;
         this.shackLength = shackLength;
         this.shackWidth = shackWidth;
-        this.carportCladding = carportCladding;
-        this.shackCladding = shackCladding;
+        this.cladding = carportCladding;
     }
 
     public int getLength() {
@@ -100,19 +99,11 @@ public class Carport {
         this.shackWidth = shackWidth;
     }
 
-    public String getCarportCladding() {
-        return carportCladding;
+    public String getCladding() {
+        return cladding;
     }
 
-    public void setCarportCladding(String carportCladding) {
-        this.carportCladding = carportCladding;
-    }
-
-    public String getShackCladding() {
-        return shackCladding;
-    }
-
-    public void setShackCladding(String shackCladding) {
-        this.shackCladding = shackCladding;
+    public void setCladding(String cladding) {
+        this.cladding = cladding;
     }
 }

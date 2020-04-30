@@ -20,8 +20,7 @@ public class CreateCarport extends Command {
         int shackLength;
         int shackWidth;
         boolean shack = Boolean.parseBoolean(request.getParameter("checkbox2"));
-        String carportCladding = request.getParameter("carportMats");
-        String shackCladding = request.getParameter("carportMats");
+        String cladding = request.getParameter("carportMats");
 
         if (slope == false) {
             roofType = "plasttrapezplader";
@@ -37,7 +36,7 @@ public class CreateCarport extends Command {
             shackLength = Integer.parseInt(request.getParameter("shackLength"));
             shackWidth = Integer.parseInt(request.getParameter("shackWidth"));
         }
-        LogicFacade.createCarport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, carportCladding, shackCladding);
+        LogicFacade.createCarport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, cladding);
 
         return "../index";
     }

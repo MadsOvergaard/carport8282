@@ -10,7 +10,9 @@ public class CarportMapper {
     public static void createCarport(Carport carport) {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Carport (length, width, height, slope, roof, slopeAngle, shack, shackLength, shackWidth, carportCladding, shackCladding) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO Carport (length, width, height, slope, roof, slopeAngle, shack, shackLength, " +
+                    "shackWidth, cladding) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, carport.getLength());
             ps.setInt(2, carport.getWidth());
@@ -21,51 +23,47 @@ public class CarportMapper {
             ps.setBoolean(7, carport.isShack());
             ps.setInt(8, carport.getShackLength());
             ps.setInt(9, carport.getShackWidth());
-            ps.setString(10, carport.getCarportCladding());
-            ps.setString(11, carport.getShackCladding());
+            ps.setString(10, carport.getCladding());
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public static ArrayList<String> RoofType() throws LoginSampleException {
-        ArrayList<String> roof = new ArrayList<>();
+    public static ArrayList<String> roofMaterial() {
+        ArrayList<String> roofList = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM Carports.rooftype";
+            String SQL = "SELECT materialType FROM Carports.materials WHERE materialDetail = \"Roof \"";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-
-                int id = rs.getInt("roofID");
-                String roofType = rs.getString("type");
-                roof.add(roofType);
+                String roofType = rs.getString("materialType");
+                roofList.add(roofType);
             }
-            return roof;
-
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new LoginSampleException(ex.getMessage());
+            return roofList;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
+        return roofList;
     }
 
-    public static ArrayList<String> cladding() throws LoginSampleException {
+    public static ArrayList<String> cladding() {
         ArrayList<String> clad = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM Carports.mats";
+            String SQL = "SELECT materialType FROM Carports.materials WHERE materialDetail = \"Cladding \"";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("MatsID");
-                String claddingType = rs.getString("type");
+                String claddingType = rs.getString("materialType");
                 clad.add(claddingType);
             }
             return clad;
-
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new LoginSampleException(ex.getMessage());
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
+        return clad;
     }
 
     // En metode som henter ID, Materiale og prisen fra vores database putter det i en ArrayList
@@ -114,7 +112,7 @@ public class CarportMapper {
                     "values (?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, type);
-            ps.setInt(2,length);
+            ps.setInt(2, length);
             ps.setInt(3, width);
             ps.setInt(4, height);
             ps.setString(5, detail);

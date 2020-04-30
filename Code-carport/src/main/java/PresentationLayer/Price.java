@@ -10,6 +10,7 @@ public class Price extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+
         int id = Integer.parseInt(request.getParameter("updateID"));
         double price = Double.parseDouble(request.getParameter("updatePrice"));
 
