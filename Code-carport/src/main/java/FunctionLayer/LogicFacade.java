@@ -21,4 +21,8 @@ public class LogicFacade {
         return carport;
     }
 
+    public static void updatePrice (double price, int id){
+        CarportMapper.updatePriceInDB(price, id);
+    }
+
 }

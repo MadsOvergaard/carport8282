@@ -1,15 +1,20 @@
 package PresentationLayer;
 
+import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static DBAccess.CarportMapper.materialList;
+public class Price extends Command {
 
-public class Admin extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        request.setAttribute("materialList", materialList());
-        return "admin";
+        int id = Integer.parseInt(request.getParameter("updateID"));
+        double price = Double.parseDouble(request.getParameter("updatePrice"));
+
+        LogicFacade.updatePrice(price, id);
+
+        return "index";
     }
 }

@@ -42,9 +42,3 @@ public class CreateCarport extends Command {
         return "../index";
     }
 }
-//todo gør så at man kan hente den her array fra index siden
-//  ArrayList<Integer> listLength = new ArrayList<>();
-//        for (int i = 480; i < 920; i += 40) {
-//            listLength.add(i);
-//        }
-//      request.setAttribute("listLength", listLength);

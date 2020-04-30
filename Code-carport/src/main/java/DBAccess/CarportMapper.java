@@ -57,7 +57,6 @@ public class CarportMapper {
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-
                 int id = rs.getInt("MatsID");
                 String claddingType = rs.getString("type");
                 clad.add(claddingType);
@@ -68,5 +67,43 @@ public class CarportMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
-}
 
+    // En metode som henter ID, Materiale og prisen fra vores database putter det i en ArrayList
+    // Bruges til at hvis en medarbejder vil rette en pris i databasen så skal han nok også lige se hvad der er i forvejen
+    public static ArrayList<String> materialList() throws LoginSampleException {
+        ArrayList<String> list = null;
+        try {
+            list = new ArrayList<>();
+            Connection con = Connector.connection();
+            String SQL = "SELECT materialID, materialType, price from Carports.materials";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("materialID");
+                String type = rs.getString("materialType");
+                double price = rs.getDouble("price");
+                String asList = "ID: " + id + ", Materiale: " + type + ", Pris: " + price + " kr<br>";
+                list.add(asList);
+            }
+            return list;
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    // En metode til at updatere prisen på et materiale ud fra ID'et
+    public static void updatePriceInDB(double price, int id) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "update Materials set price = ? where materialID = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setDouble(1, price);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
