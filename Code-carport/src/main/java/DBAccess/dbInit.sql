@@ -7,6 +7,7 @@ Create database Carports;
 use Carports;
 
 create table Carport (
+`carportOrdreID` int not null auto_increment,
 `length` int not null,
 `width` int not null,
 `height` int not null,
@@ -16,7 +17,8 @@ create table Carport (
 `shack` boolean not null,
 `shackLength` int not null,
 `shackWidth` int not null,
-`cladding` varchar(50) not null
+`cladding` varchar(50) not null,
+primary key(`carportOrdreID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
   create table Materials (
@@ -68,4 +70,5 @@ create table Carport (
 (35, "Eternittag B7 Mokka", 0, 0, 0, "Roof", 2000),
 (36, "Eternittag B7 Rødbrun", 0, 0, 0, "Roof", 2000),
 (37, "Eternittag B7 Teglrød", 0, 0, 0, "Roof", 2000),
-(38, "Eternittag B7 Rødflammet", 0, 0, 0, "Roof", 2000);
+(38, "Eternittag B7 Rødflammet", 0, 0, 0, "Roof", 2000),
+(39, "plasttrapezplader", 0, 0, 0, "DefaultRoof", 1500);
