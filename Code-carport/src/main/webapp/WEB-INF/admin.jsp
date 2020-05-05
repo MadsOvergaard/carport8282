@@ -3,50 +3,10 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../CSS/hjemmesideBilledeStyle.css" type="text/css">
+    <link rel="stylesheet" href="./CSS/hjemmesideBilledeStyle.css" type="text/css">
     <meta name="viewport" content="with=device-width">
     <title>Admin</title>
-    <style>
-        .container {
-            position: relative;
-            width: 300px;
-        }
-
-        .image {
-            opacity: 1;
-            display: block;
-            width: 300px;
-            height: 300px;
-            transition: .5s ease;
-            backface-visibility: hidden;
-        }
-
-        .middle {
-            transition: .5s ease;
-            opacity: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        .container:hover .image {
-            opacity: 0.3;
-        }
-
-        .container:hover .middle {
-            opacity: 1;
-        }
-
-        .text {
-            background-color: #031704;
-            color: white;
-            font-size: 16px;
-            padding: 16px 32px;
-        }
-    </style>
+    
 </head>
 <body>
 <div>
