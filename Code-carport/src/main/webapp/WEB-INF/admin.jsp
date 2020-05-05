@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./CSS/hjemmesideBilledeStyle.css" type="text/css">
     <meta name="viewport" content="with=device-width">
     <title>Admin</title>
-    
+
 </head>
 <body>
 <div>
