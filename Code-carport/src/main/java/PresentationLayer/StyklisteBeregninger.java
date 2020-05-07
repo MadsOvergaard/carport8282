@@ -1,6 +1,10 @@
 package PresentationLayer;
 
 
+import DBAccess.MaterialsMapper;
+
+import java.util.HashMap;
+
 import static java.lang.Math.pow;
 
 public class StyklisteBeregninger {
@@ -59,6 +63,26 @@ public class StyklisteBeregninger {
         return Math.ceil(AntalPlankerFront);
 
     }
+
+    public static int calculateStolper(int length, int width, int height){
+        HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
+        int stolper = 4;
+
+
+        if (length > 420 && length <= 630){
+            stolper += 2;
+
+        }else if (length > 630){
+            stolper += 4;
+        }
+        if (width > 520){
+            stolper += 2;
+        }
+        
+
+    }
+
+
 
 }
 
