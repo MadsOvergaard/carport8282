@@ -21,7 +21,7 @@ create table Carport (
 primary key(`carportOrdreID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
-  create table Materials (
+  create table materials (
  `materialID` int not null auto_increment,
  `materialType` varchar(30) not null,
  `materialLength` int not null,
@@ -32,7 +32,7 @@ primary key(`carportOrdreID`)
  primary key (`materialID`)
  )ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
- insert into Materials value
+ insert into materials value
 (1, "Trykimpregneret stolpe", 300, 97, 97, "Det er en stolpe som bestemmer højden, trykimpregneret", 39.0),
 (2, "Spærtræ", 600, 45, 195, "Vandret planke som forbinder stolper, spærtræ", 36.38),
 (3, "Spærtræ", 480, 45, 195, "Vandret planke som forbinder stolper, spærtræ", 36.38),
