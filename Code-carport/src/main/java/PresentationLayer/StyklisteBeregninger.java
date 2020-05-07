@@ -19,17 +19,19 @@ public class StyklisteBeregninger {
 
     //Udregner Længden af Losholter
     public static double CalculateLosholterSide(int shackLength) {
-        LosholterSide = (shackLength - (2*9.7))*2;
+        LosholterSide = (shackLength - (2 * 9.7)) * 2;
 
         return LosholterSide;
 
     }
+
     public static double CalculateLosholterFront(int shackWidth) {
-        LosholterFront = ((shackWidth - (2*9.7)-1)*2)-110;
+        LosholterFront = ((shackWidth - (2 * 9.7) - 1) * 2) - 110;
 
         return LosholterFront;
 
     }
+
     //Udregner Længden af det skrå tag
     public static double CalculateVinskederLength(int width, int slopeAngle) {
         double temp = (width / 2);
@@ -40,9 +42,9 @@ public class StyklisteBeregninger {
     }
 
     //Udregner Længden af
-    public static double CalculateRoofWood(int Length,int width, int slopeAngle) {
+    public static double CalculateRoofWood(int Length, int width, int slopeAngle) {
         double Vinskeder = CalculateVinskederLength(width, slopeAngle);
-        WoodLength = Length*((Vinskeder/50)*2);
+        WoodLength = Length * ((Vinskeder / 50) * 2);
 
 
         return WoodLength;
@@ -52,20 +54,20 @@ public class StyklisteBeregninger {
 
     //Udregner Længden af
     public static double CalculateCladdingSide(int shackWidth) {
-        AntalPlankerSide = (shackWidth/8)*2;
+        AntalPlankerSide = (shackWidth / 8) * 2;
 
         return Math.ceil(AntalPlankerSide);
 
     }
 
     public static double CalculateCladdingFront(int shackLength) {
-        AntalPlankerFront = ((shackLength/8)*2)-110;
+        AntalPlankerFront = ((shackLength / 8) * 2) - 110;
 
         return Math.ceil(AntalPlankerFront);
 
     }
 
-    public static int calculateStolper(int length, int width, int height) {
+    public static String calculateStolper(int length, int width, int height) {
         HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
         int stolperAntalWidth = 2;
         int stolperAntalLength = 2;
@@ -80,8 +82,8 @@ public class StyklisteBeregninger {
         if (width > 520) {
             stolperAntalWidth += 1;
         }
-        int antalStolper = stolperAntalLength*stolperAntalWidth;
-        int cmStolpe = height*antalStolper;
+        int antalStolper = stolperAntalLength * stolperAntalWidth;
+        int cmStolpe = height * antalStolper;
 
         materials stolpeLength1 = materialer.get("Trykimpregneret stolpe1");
         materials stolpeLength2 = materialer.get("Trykimpregneret stolpe43");
@@ -89,22 +91,20 @@ public class StyklisteBeregninger {
         int stl1 = stolpeLength1.getMatLength();
         int stl2 = stolpeLength2.getMatLength();
 
-        int stolpeMath1 = cmStolpe/stl1;
-        int stolpeExtra1 = cmStolpe%stl1;
+        int stolpeMath1 = cmStolpe / stl1;
+        int stolpeExtra1 = cmStolpe % stl1;
 
-        int stolpeMath2 = stolpeExtra1/stl2;
-        int stolpeExtra2 = stolpeExtra1%stl2;
+        int stolpeMath2 = stolpeExtra1 / stl2;
+        int stolpeExtra2 = stolpeExtra1 % stl2;
 
-        if (stolpeExtra2 > 0){
-            stolpeMath2 +=1;
+        if (stolpeExtra2 > 0) {
+            stolpeMath2 += 1;
         }
+        String stolpeAntal1 = stolpeMath1 + stolpeLength1.getMatLength() + stolpeLength1.getMatType();
+        String stolpeAntal2 = stolpeMath2 + stolpeLength2.getMatLength() + stolpeLength2.getMatType();
 
-
-        int totalStolpe = stolpeMath1+stolpeMath2;
-
-        return totalStolpe;
+        return stolpeAntal1 + " " + stolpeAntal2;
     }
-        
 
 }
 
