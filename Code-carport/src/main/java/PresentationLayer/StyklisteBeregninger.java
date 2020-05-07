@@ -67,11 +67,11 @@ public class StyklisteBeregninger {
 
     }
 
+    //Pepega stolpe udregner todo Det her er ikke dynamisk!!! 
     public static String calculateStolper(int length, int width, int height) {
         HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
         int stolperAntalWidth = 2;
         int stolperAntalLength = 2;
-
 
         if (length > 420 && length <= 630) {
             stolperAntalLength += 1;
