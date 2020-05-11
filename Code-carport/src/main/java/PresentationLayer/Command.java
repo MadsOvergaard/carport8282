@@ -18,6 +18,7 @@ abstract class Command {
         commands.put("admin", new Admin());
         commands.put("updateDBPrice", new Price());
         commands.put("addDBMaterial", new addMaterial());
+        commands.put("stykliste", new stykliste());
     }
 
     static Command from(HttpServletRequest request) {

@@ -122,4 +122,35 @@ public class CarportMapper {
             e.printStackTrace();
         }
     }
+
+    public static Carport styklisteCarport(int id) {
+        Carport carport = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM carport WHERE carportOrdreID = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                int height = rs.getInt("height");
+                boolean slope = rs.getBoolean("slope");
+                String roofType = rs.getString("roof");
+                int slopeAngle = rs.getInt("slopeAngle");
+                boolean shack = rs.getBoolean("shack");
+                int shackLength = rs.getInt("shackLength");
+                int shackWidth = rs.getInt("shackWidth");
+                String cladding = rs.getString("cladding");
+
+                carport = new Carport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, cladding);
+            }
+            return carport;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return carport;
+    }
+
+
 }

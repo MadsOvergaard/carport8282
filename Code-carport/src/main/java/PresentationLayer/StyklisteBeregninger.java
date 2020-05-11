@@ -18,7 +18,7 @@ public class StyklisteBeregninger {
     private static double AntalPlankerFront = 0;
     private static int stolperAntalLength = 2;
     private static int stolperAntalWidth = 2;
-    private static HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
+    private static HashMap<Integer, materials> materialer = MaterialsMapper.hashMapAfMaterialer();
 
     //Udregner Længden af Losholter
     public static double CalculateLosholterSide(int shackLength) {
@@ -77,8 +77,8 @@ public class StyklisteBeregninger {
         int antalStolper = stolperAntalLength * stolperAntalWidth;
         int cmStolpe = height * antalStolper;
 
-        materials stolpe1 = materialer.get("Trykimpregneret stolpe1");
-        materials stolpe2 = materialer.get("Trykimpregneret stolpe43");
+        materials stolpe1 = materialer.get(1);
+        materials stolpe2 = materialer.get(43);
         int stolpe1Length = stolpe1.getMatLength();
         int stolpe2Length = stolpe2.getMatLength();
 
@@ -91,18 +91,18 @@ public class StyklisteBeregninger {
         if (stolpeExtra2 > 0) {
             stolpeMath2 += 1;
         }
-        String stolpeAntal1 = stolpeMath1 + stolpe1.getMatLength() + stolpe1.getMatType();
-        String stolpeAntal2 = stolpeMath2 + stolpe2.getMatLength() + stolpe2.getMatType();
+        String stolpeAntal1 = "Antal: " + stolpeMath1 + " Længden: " + stolpe1.getMatLength() + " Type: " + stolpe1.getMatType();
+        String stolpeAntal2 = "Antal: " + stolpeMath2 + " Længden: " + stolpe2.getMatLength() + " Type: " + stolpe2.getMatType();
 
-        return stolpeAntal1 + " " + stolpeAntal2;
+        return stolpeAntal1 + "  " + stolpeAntal2;
     }
 
     // Den her metode skal kaldes efter calculateStolper ellers virker det ikke
     public static String calculateRem(int length) {
         int maxRemLength = length * stolperAntalWidth;
 
-        materials rem1 = materialer.get("Reglar ub.12");
-        materials rem2 = materialer.get("Reglar ub.13");
+        materials rem1 = materialer.get(12);
+        materials rem2 = materialer.get(13);
         int rem1Length = rem1.getMatLength();
         int rem2Length = rem2.getMatLength();
 
@@ -118,15 +118,15 @@ public class StyklisteBeregninger {
         String remAntal1 = remMath1 + " " + rem1.getMatLength() + " " + rem1.getMatType();
         String remAntal2 = remMath2 + " " + rem2.getMatLength() + " " + rem2.getMatType();
 
-        return remAntal1 + " " + remAntal2;
+        return remAntal1 + "  " + remAntal2;
     }
 
     public static String calculateSpaerFladtTag(int length, int width) {
         int spaerAntalRaekker = length / 80; // 80 er den længde der skal være mellem spær
         int maxSpaerLength = spaerAntalRaekker * width;
 
-        materials spaer1 = materialer.get("Spærtræ2");
-        materials spaer2 = materialer.get("Spærtræ3");
+        materials spaer1 = materialer.get(2);
+        materials spaer2 = materialer.get(3);
         int spaer1Length = spaer1.getMatLength();
         int spaer2Length = spaer2.getMatLength();
 
@@ -139,9 +139,9 @@ public class StyklisteBeregninger {
             spaerMath2 += 1;
         }
 
-        String spaerAntal1 = spaerMath1 + " " + spaer1.getMatLength() + " " + spaer1.getMatType();
-        String spaerAntal2 = spaerMath2 + " " + spaer2.getMatLength() + " " + spaer2.getMatType();
-        return spaerAntal1 + " " + spaerAntal2;
+        String spaerAntal1 = "Antal: " + spaerMath1 + " Længden: " + spaer1.getMatLength() + " Typen: " + spaer1.getMatType();
+        String spaerAntal2 = "Antal: " + spaerMath2 + " Længden: " + spaer2.getMatLength() + " Typen: " + spaer2.getMatType();
+        return spaerAntal1 + "  " + spaerAntal2;
     }
 
     public static String calculateSpaerRejsning(int length, int width, int slopeAngle) {
@@ -149,8 +149,8 @@ public class StyklisteBeregninger {
         double hypotenusenx2 = CalculateVinskederLength(width, slopeAngle);
         int maxSpaerLength = ((int) hypotenusenx2 + width) * spaerAntalRaekker;
 
-        materials spaer1 = materialer.get("Spærtræ2");
-        materials spaer2 = materialer.get("Spærtræ3");
+        materials spaer1 = materialer.get(2);
+        materials spaer2 = materialer.get(3);
         int spaer1Length = spaer1.getMatLength();
         int spaer2Length = spaer2.getMatLength();
 
@@ -163,9 +163,9 @@ public class StyklisteBeregninger {
             spaerMath2 += 1;
         }
 
-        String spaerAntal1 = spaerMath1 + " " + spaer1.getMatLength() + " " + spaer1.getMatType();
-        String spaerAntal2 = spaerMath2 + " " + spaer2.getMatLength() + " " + spaer2.getMatType();
-        return spaerAntal1 + " " + spaerAntal2;
+        String spaerAntal1 = "Antal: " + spaerMath1 + " Længden: " + spaer1.getMatLength() + " Typen: " + spaer1.getMatType();
+        String spaerAntal2 = "Antal: " + spaerMath2 + " Længden: " + spaer2.getMatLength() + " Typen: " + spaer2.getMatType();
+        return spaerAntal1 + "  " + spaerAntal2;
     }
 
 }
