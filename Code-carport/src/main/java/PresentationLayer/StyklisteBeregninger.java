@@ -16,6 +16,8 @@ public class StyklisteBeregninger {
     private static double WoodLength = 0;
     private static double AntalPlankerSide = 0;
     private static double AntalPlankerFront = 0;
+    private static int stolperAntalLength = 2;
+    private static int stolperAntalWidth = 2;
 
     //Udregner Længden af Losholter
     public static double CalculateLosholterSide(int shackLength) {
@@ -67,11 +69,11 @@ public class StyklisteBeregninger {
 
     }
 
-    //Pepega stolpe udregner todo Det her er ikke dynamisk!!! 
+    //Pepega stolpe udregner todo Det her er ikke dynamisk!!!
     public static String calculateStolper(int length, int width, int height) {
+        stolperAntalLength = 2;
+        stolperAntalWidth = 2;
         HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
-        int stolperAntalWidth = 2;
-        int stolperAntalLength = 2;
 
         if (length > 420 && length <= 630) {
             stolperAntalLength += 1;
@@ -85,25 +87,73 @@ public class StyklisteBeregninger {
         int antalStolper = stolperAntalLength * stolperAntalWidth;
         int cmStolpe = height * antalStolper;
 
-        materials stolpeLength1 = materialer.get("Trykimpregneret stolpe1");
-        materials stolpeLength2 = materialer.get("Trykimpregneret stolpe43");
+        materials stolpe1 = materialer.get("Trykimpregneret stolpe1");
+        materials stolpe2 = materialer.get("Trykimpregneret stolpe43");
+        int stolpe1Length = stolpe1.getMatLength();
+        int stolpe2Length = stolpe2.getMatLength();
 
-        int stl1 = stolpeLength1.getMatLength();
-        int stl2 = stolpeLength2.getMatLength();
+        int stolpeMath1 = cmStolpe / stolpe1Length;
+        int stolpeExtra1 = cmStolpe % stolpe1Length;
 
-        int stolpeMath1 = cmStolpe / stl1;
-        int stolpeExtra1 = cmStolpe % stl1;
-
-        int stolpeMath2 = stolpeExtra1 / stl2;
-        int stolpeExtra2 = stolpeExtra1 % stl2;
+        int stolpeMath2 = stolpeExtra1 / stolpe2Length;
+        int stolpeExtra2 = stolpeExtra1 % stolpe2Length;
 
         if (stolpeExtra2 > 0) {
             stolpeMath2 += 1;
         }
-        String stolpeAntal1 = stolpeMath1 + stolpeLength1.getMatLength() + stolpeLength1.getMatType();
-        String stolpeAntal2 = stolpeMath2 + stolpeLength2.getMatLength() + stolpeLength2.getMatType();
+        String stolpeAntal1 = stolpeMath1 + stolpe1.getMatLength() + stolpe1.getMatType();
+        String stolpeAntal2 = stolpeMath2 + stolpe2.getMatLength() + stolpe2.getMatType();
 
         return stolpeAntal1 + " " + stolpeAntal2;
+    }
+
+    // Den her metode skal kaldes efter calculateStolper ellers virker det ikke
+    public static String calculateRem(int length) {
+        HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
+        int maxRemLength = length * stolperAntalWidth;
+
+        materials rem1 = materialer.get("Reglar ub.12");
+        materials rem2 = materialer.get("Reglar ub.13");
+        int rem1Length = rem1.getMatLength();
+        int rem2Length = rem2.getMatLength();
+
+        int remMath1 = maxRemLength / rem1Length;
+        int remExtra1 = maxRemLength % rem1Length;
+        int remMath2 = remExtra1 / rem2Length;
+        int remExtra2 = remExtra1 % rem2Length;
+
+        if (remExtra2 > 0) {
+            remMath2 += 1;
+        }
+
+        String remAntal1 = remMath1 + " " + rem1.getMatLength() + " " + rem1.getMatType();
+        String remAntal2 = remMath2 + " " + rem2.getMatLength() + " " + rem2.getMatType();
+
+        return remAntal1 + " " + remAntal2;
+    }
+
+    public static String calculateSpaer(int length, int width) {
+        HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
+        int spaerAntalRaekker = length / 80; // 80 er den længde der skal være mellem spær
+        int maxSpaerLength = spaerAntalRaekker * width;
+
+        materials spaer1 = materialer.get("Spærtræ2");
+        materials spaer2 = materialer.get("Spærtræ3");
+        int spaer1Length = spaer1.getMatLength();
+        int spaer2Length = spaer2.getMatLength();
+
+        int spaerMath1 = maxSpaerLength / spaer1Length;
+        int spaerExtra1 = maxSpaerLength % spaer1Length;
+        int spaerMath2 = spaerExtra1 / spaer2Length;
+        int spaerExtra2 = spaerExtra1 % spaer2Length;
+
+        if (spaerExtra2 > 0) {
+            spaerMath2 += 1;
+        }
+
+        String spaerAntal1 = spaerMath1 + " " + spaer1.getMatLength() + " " + spaer1.getMatType();
+        String spaerAntal2 = spaerMath2 + " " + spaer2.getMatLength() + " " + spaer2.getMatType();
+        return spaerAntal1 + " " + spaerAntal2;
     }
 
 }
