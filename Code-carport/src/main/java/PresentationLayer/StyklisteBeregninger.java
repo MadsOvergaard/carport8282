@@ -18,19 +18,17 @@ public class StyklisteBeregninger {
     private static double AntalPlankerFront = 0;
     private static int stolperAntalLength = 2;
     private static int stolperAntalWidth = 2;
-
+    private static HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
 
     //Udregner Længden af Losholter
     public static double CalculateLosholterSide(int shackLength) {
         LosholterSide = (shackLength - (2 * 9.7)) * 2;
-
         return LosholterSide;
 
     }
 
     public static double CalculateLosholterFront(int shackWidth) {
         LosholterFront = ((shackWidth - (2 * 9.7) - 1) * 2) - 110;
-
         return LosholterFront;
 
     }
@@ -39,7 +37,6 @@ public class StyklisteBeregninger {
     public static double CalculateVinskederLength(int width, int slopeAngle) {
         double temp = (width / 2);
         VinskederLength = 2 * Math.sqrt(Math.pow((temp) * Math.tan(slopeAngle), 2.0) + pow(temp, 2));
-
         return VinskederLength;
 
     }
@@ -48,8 +45,6 @@ public class StyklisteBeregninger {
     public static double CalculateRoofWood(int Length, int width, int slopeAngle) {
         double Vinskeder = CalculateVinskederLength(width, slopeAngle);
         WoodLength = Length * ((Vinskeder / 50) * 2);
-
-
         return WoodLength;
 
     }
@@ -58,27 +53,21 @@ public class StyklisteBeregninger {
     //Udregner Længden af
     public static double CalculateCladdingSide(int shackWidth) {
         AntalPlankerSide = (shackWidth / 8) * 2;
-
         return Math.ceil(AntalPlankerSide);
-
     }
 
     public static double CalculateCladdingFront(int shackLength) {
         AntalPlankerFront = ((shackLength / 8) * 2) - 110;
-
         return Math.ceil(AntalPlankerFront);
-
     }
 
     //Pepega stolpe udregner todo Det her er ikke dynamisk!!!
     public static String calculateStolper(int length, int width, int height) {
         stolperAntalLength = 2;
         stolperAntalWidth = 2;
-        HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
 
         if (length > 420 && length <= 630) {
             stolperAntalLength += 1;
-
         } else if (length > 630) {
             stolperAntalLength += 2;
         }
@@ -110,7 +99,6 @@ public class StyklisteBeregninger {
 
     // Den her metode skal kaldes efter calculateStolper ellers virker det ikke
     public static String calculateRem(int length) {
-        HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
         int maxRemLength = length * stolperAntalWidth;
 
         materials rem1 = materialer.get("Reglar ub.12");
@@ -134,7 +122,6 @@ public class StyklisteBeregninger {
     }
 
     public static String calculateSpaerFladtTag(int length, int width) {
-        HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
         int spaerAntalRaekker = length / 80; // 80 er den længde der skal være mellem spær
         int maxSpaerLength = spaerAntalRaekker * width;
 
@@ -158,10 +145,9 @@ public class StyklisteBeregninger {
     }
 
     public static String calculateSpaerRejsning(int length, int width, int slopeAngle) {
-        HashMap<String, FunctionLayer.materials> materialer = MaterialsMapper.hashMapAfMaterialer();
         int spaerAntalRaekker = length / 80; // 80 er den længde der skal være mellem spær
         double hypotenusenx2 = CalculateVinskederLength(width, slopeAngle);
-        int maxSpaerLength = ((int)hypotenusenx2 + width)*spaerAntalRaekker;
+        int maxSpaerLength = ((int) hypotenusenx2 + width) * spaerAntalRaekker;
 
         materials spaer1 = materialer.get("Spærtræ2");
         materials spaer2 = materialer.get("Spærtræ3");
