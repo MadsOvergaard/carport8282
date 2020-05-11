@@ -91,10 +91,13 @@ public class StyklisteBeregninger {
         if (stolpeExtra2 > 0) {
             stolpeMath2 += 1;
         }
-        String stolpeAntal1 = "Antal: " + stolpeMath1 + " Længden: " + stolpe1.getMatLength() + " Type: " + stolpe1.getMatType();
-        String stolpeAntal2 = "Antal: " + stolpeMath2 + " Længden: " + stolpe2.getMatLength() + " Type: " + stolpe2.getMatType();
-
-        return stolpeAntal1 + "  " + stolpeAntal2;
+        String stolpeAntal1 = "Antal: " + stolpeMath1 + " Længden: " + stolpe1.getMatLength() + " Type: " + stolpe1.getMatType() + " || ";
+        String stolpeAntal2 = "Antal: " + stolpeMath2 + " Længden: " + stolpe2.getMatLength() + " Type: " + stolpe2.getMatType() + " || ";
+        if (stolpeMath2 == 0) {
+            return stolpeAntal1;
+        } else {
+            return stolpeAntal1 + "  " + stolpeAntal2;
+        }
     }
 
     // Den her metode skal kaldes efter calculateStolper ellers virker det ikke
@@ -115,10 +118,13 @@ public class StyklisteBeregninger {
             remMath2 += 1;
         }
 
-        String remAntal1 = remMath1 + " " + rem1.getMatLength() + " " + rem1.getMatType();
-        String remAntal2 = remMath2 + " " + rem2.getMatLength() + " " + rem2.getMatType();
-
-        return remAntal1 + "  " + remAntal2;
+        String remAntal1 = "Antal: " + remMath1 + " Længde: " + rem1.getMatLength() + " Type: " + rem1.getMatType() + " || ";
+        String remAntal2 = "Antal: " + remMath2 + " Længde: " + rem2.getMatLength() + " Type: " + rem2.getMatType() + " || ";
+        if (remMath2 == 0) {
+            return remAntal1;
+        } else {
+            return remAntal1 + "  " + remAntal2;
+        }
     }
 
     public static String calculateSpaerFladtTag(int length, int width) {
@@ -139,9 +145,13 @@ public class StyklisteBeregninger {
             spaerMath2 += 1;
         }
 
-        String spaerAntal1 = "Antal: " + spaerMath1 + " Længden: " + spaer1.getMatLength() + " Typen: " + spaer1.getMatType();
-        String spaerAntal2 = "Antal: " + spaerMath2 + " Længden: " + spaer2.getMatLength() + " Typen: " + spaer2.getMatType();
-        return spaerAntal1 + "  " + spaerAntal2;
+        String spaerAntal1 = "Antal: " + spaerMath1 + " Længde: " + spaer1.getMatLength() + " Type: " + spaer1.getMatType() + " || ";
+        String spaerAntal2 = "Antal: " + spaerMath2 + " Længde: " + spaer2.getMatLength() + " Type: " + spaer2.getMatType() + " || ";
+        if (spaerMath2 == 0) {
+            return spaerAntal1;
+        } else {
+            return spaerAntal1 + "  " + spaerAntal2;
+        }
     }
 
     public static String calculateSpaerRejsning(int length, int width, int slopeAngle) {
@@ -163,9 +173,13 @@ public class StyklisteBeregninger {
             spaerMath2 += 1;
         }
 
-        String spaerAntal1 = "Antal: " + spaerMath1 + " Længden: " + spaer1.getMatLength() + " Typen: " + spaer1.getMatType();
-        String spaerAntal2 = "Antal: " + spaerMath2 + " Længden: " + spaer2.getMatLength() + " Typen: " + spaer2.getMatType();
-        return spaerAntal1 + "  " + spaerAntal2;
+        String spaerAntal1 = "Antal: " + spaerMath1 + " Længde: " + spaer1.getMatLength() + " Type: " + spaer1.getMatType() + " || ";
+        String spaerAntal2 = "Antal: " + spaerMath2 + " Længde: " + spaer2.getMatLength() + " Type: " + spaer2.getMatType() + " || ";
+        if (spaerMath2 == 0) {
+            return spaerAntal1;
+        } else {
+            return spaerAntal1 + "  " + spaerAntal2;
+        }
     }
 
 }
