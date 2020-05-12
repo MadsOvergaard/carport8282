@@ -2,17 +2,17 @@ package FunctionLayer;
 
 public class Svg {
 
-    private int width;
-    private int height;
+    private double width;
+    private double height;
     private String viewbox;
-    private int x;
-    private int y;
+    private double x;
+    private double y;
     private StringBuilder svg = new StringBuilder();
 
     private final String headerTemplate = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"%s\" width=\"%s\" viewbox\"%s\" preserveAspectRatio=\"xMinY;om\">";
-    private final String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"Stroke:#000000; fill: #ffffff\" />";
+    private final String rectTemplate = "<rect x=\"%f\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"Stroke:#000000; fill: #ffffff\" />";
 
-    public Svg(int width, int height, String viewbox, int x, int y) {
+    public Svg(double width, double height, String viewbox, double x, double y) {
         this.width = width;
         this.height = height;
         this.viewbox = viewbox;
@@ -21,23 +21,23 @@ public class Svg {
         svg.append(String.format(headerTemplate, height, width, viewbox));
     }
 
-    public void addRect(int x, int y, int height, int width){
+    public void addRect(double x, double y, double height, double width){
         svg.append(String.format(rectTemplate, x, y, height, width));
     }
 
-    public int getWidth() {
+    public double getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
-    public int getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
@@ -49,19 +49,19 @@ public class Svg {
         this.viewbox = viewbox;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
