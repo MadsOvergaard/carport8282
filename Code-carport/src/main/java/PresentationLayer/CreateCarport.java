@@ -41,10 +41,10 @@ public class CreateCarport extends Command {
         }
         LogicFacade.createCarport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, cladding);
 
+
+        //SVG STARTER HER --- SVG STARTER HER --- SVG STARTER HER
         Svg svg = new Svg(1000, 1000, "0,0,1000,1000", 0,0);
         svg.addRect(50,50,width, length); //Carport omrids
-
-
 
         if (length > 420 && length <= 630) {
             stolperAntalLength += 1;
@@ -54,6 +54,10 @@ public class CreateCarport extends Command {
         if (width > 520) {
             stolperAntalWidth += 1;
         }
+        for (int i = 0; i < length; i+=80) {
+            svg.addRect(50+i,50,width,4.5); //Spær
+        }
+
         svg.addRect(50,75+2.4,4.5, length); //Rem
         svg.addRect(50,50+width-25+2.4,4.5, length); //Rem
 
@@ -61,7 +65,8 @@ public class CreateCarport extends Command {
         svg.addRect(50+length-50,75,9.7, 9.7); //Stolpe
         svg.addRect(50+50,50+width-25,9.7, 9.7); //Stolpe
         svg.addRect(50+length-50,50+width-25,9.7, 9.7); //Stolpe
-
+        svg.addRect(50,50,width, 4.5); //Spær
+        svg.addRect(50+length, 50,width, 4.5); //Spær
 
         int antalstolper = stolperAntalLength*stolperAntalWidth;
 
