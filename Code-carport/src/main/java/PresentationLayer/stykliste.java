@@ -12,7 +12,7 @@ public class stykliste extends Command {
 
         int id = Integer.parseInt(request.getParameter("carportID"));
         String stykliste = LogicFacade.styklisteForCarport(id);
-
+        request.setAttribute("id", id);
         request.setAttribute("stykliste", stykliste);
 
 

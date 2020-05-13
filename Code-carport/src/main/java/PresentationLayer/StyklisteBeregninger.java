@@ -1,11 +1,8 @@
 package PresentationLayer;
 
-
 import DBAccess.MaterialsMapper;
 import FunctionLayer.materials;
-
 import java.util.HashMap;
-
 import static java.lang.Math.pow;
 
 public class StyklisteBeregninger {
@@ -24,13 +21,11 @@ public class StyklisteBeregninger {
     public static double CalculateLosholterSide(int shackLength) {
         LosholterSide = (shackLength - (2 * 9.7)) * 2;
         return LosholterSide;
-
     }
 
     public static double CalculateLosholterFront(int shackWidth) {
         LosholterFront = ((shackWidth - (2 * 9.7) - 1) * 2) - 110;
         return LosholterFront;
-
     }
 
     //Udregner Længden af det skrå tag
@@ -38,7 +33,6 @@ public class StyklisteBeregninger {
         double temp = (width / 2);
         VinskederLength = 2 * Math.sqrt(Math.pow((temp) * Math.tan(slopeAngle), 2.0) + pow(temp, 2));
         return VinskederLength;
-
     }
 
     //Udregner Længden af
@@ -46,19 +40,25 @@ public class StyklisteBeregninger {
         double Vinskeder = CalculateVinskederLength(width, slopeAngle);
         WoodLength = Length * ((Vinskeder / 50) * 2);
         return WoodLength;
-
     }
 
-
     //Udregner Længden af
-    public static double CalculateCladdingSide(int shackWidth) {
-        AntalPlankerSide = (shackWidth / 8) * 2;
+    public static double CalculateCladdingSide(int shackLength) {
+        AntalPlankerSide = (shackLength / 8) * 2; // 8 er et tal vi har valgt fordi at plankerne vi bruger er 10 cm bredde men vi gør plads til overlap når plankerne skal sidde på hinanden
         return Math.ceil(AntalPlankerSide);
     }
 
-    public static double CalculateCladdingFront(int shackLength) {
-        AntalPlankerFront = ((shackLength / 8) * 2) - 110;
+    public static double CalculateCladdingFront(int shackWidth) {
+        AntalPlankerFront = ((shackWidth / 8) * 2) - 11;
         return Math.ceil(AntalPlankerFront);
+    }
+
+    public static String totalPlankerSkur(int width, int length) {
+        int sidePlanker = (int) CalculateCladdingSide(length);
+        int frontPlanker = (int) CalculateCladdingFront(width);
+        int totalPlanker = sidePlanker + frontPlanker;
+        String total = "Total antal planker til skuret: " + totalPlanker + "<br>";
+        return total;
     }
 
     //Pepega stolpe udregner todo Det her er ikke dynamisk!!!
@@ -91,8 +91,8 @@ public class StyklisteBeregninger {
         if (stolpeExtra2 > 0) {
             stolpeMath2 += 1;
         }
-        String stolpeAntal1 = "Antal: " + stolpeMath1 + " Længden: " + stolpe1.getMatLength() + " Type: " + stolpe1.getMatType() + " || ";
-        String stolpeAntal2 = "Antal: " + stolpeMath2 + " Længden: " + stolpe2.getMatLength() + " Type: " + stolpe2.getMatType() + " || ";
+        String stolpeAntal1 = "Antal: " + stolpeMath1 + " Længden: " + stolpe1.getMatLength() + " cm. Type: " + stolpe1.getMatType() + "<br>";
+        String stolpeAntal2 = "Antal: " + stolpeMath2 + " Længden: " + stolpe2.getMatLength() + " cm. Type: " + stolpe2.getMatType() + "<br>";
         if (stolpeMath2 == 0) {
             return stolpeAntal1;
         } else {
@@ -118,8 +118,9 @@ public class StyklisteBeregninger {
             remMath2 += 1;
         }
 
-        String remAntal1 = "Antal: " + remMath1 + " Længde: " + rem1.getMatLength() + " Type: " + rem1.getMatType() + " || ";
-        String remAntal2 = "Antal: " + remMath2 + " Længde: " + rem2.getMatLength() + " Type: " + rem2.getMatType() + " || ";
+        String remAntal1 = "Antal: " + remMath1 + " Længde: " + rem1.getMatLength() + " cm. Type: " + rem1.getMatType() + "<br>";
+        String remAntal2 = "Antal: " + remMath2 + " Længde: " + rem2.getMatLength() + " cm. Type: " + rem2.getMatType() + "<br>";
+
         if (remMath2 == 0) {
             return remAntal1;
         } else {
@@ -145,8 +146,9 @@ public class StyklisteBeregninger {
             spaerMath2 += 1;
         }
 
-        String spaerAntal1 = "Antal: " + spaerMath1 + " Længde: " + spaer1.getMatLength() + " Type: " + spaer1.getMatType() + " || ";
-        String spaerAntal2 = "Antal: " + spaerMath2 + " Længde: " + spaer2.getMatLength() + " Type: " + spaer2.getMatType() + " || ";
+        String spaerAntal1 = "Antal: " + spaerMath1 + " Længde: " + spaer1.getMatLength() + " cm. Type: " + spaer1.getMatType() + "<br>";
+        String spaerAntal2 = "Antal: " + spaerMath2 + " Længde: " + spaer2.getMatLength() + " cm. Type: " + spaer2.getMatType() + "<br>";
+
         if (spaerMath2 == 0) {
             return spaerAntal1;
         } else {
@@ -173,15 +175,15 @@ public class StyklisteBeregninger {
             spaerMath2 += 1;
         }
 
-        String spaerAntal1 = "Antal: " + spaerMath1 + " Længde: " + spaer1.getMatLength() + " Type: " + spaer1.getMatType() + " || ";
-        String spaerAntal2 = "Antal: " + spaerMath2 + " Længde: " + spaer2.getMatLength() + " Type: " + spaer2.getMatType() + " || ";
+        String spaerAntal1 = "Antal: " + spaerMath1 + " Længde: " + spaer1.getMatLength() + " cm. Type: " + spaer1.getMatType() + "<br>";
+        String spaerAntal2 = "Antal: " + spaerMath2 + " Længde: " + spaer2.getMatLength() + " cm. Type: " + spaer2.getMatType() + "<br>";
+
         if (spaerMath2 == 0) {
             return spaerAntal1;
         } else {
             return spaerAntal1 + "  " + spaerAntal2;
         }
     }
-
 }
 
 
