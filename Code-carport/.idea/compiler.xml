@@ -9,8 +9,8 @@
         <module name="prejektSkabelon" />
         <module name="Code-carport" />
         <module name="Projektskabelon-master" />
-        <module name="Projektskabelon" />
         <module name="ProjektSkabelon-master" />
+        <module name="Projektskabelon" />
       </profile>
     </annotationProcessing>
   </component>
