@@ -12,6 +12,9 @@ public class Svg {
     private final String headerTemplate = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"%s\" width=\"%s\" viewbox\"%s\" preserveAspectRatio=\"xMinY;om\">";
     private final String rectTemplate = "<rect x=\"%f\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"Stroke:#000000; fill: #ffffff\" />";
 
+    // Todo Arrow :)
+    //private final String ArrowTemplate = "<SVG width=\"25%\" viewBox=\"0 0 150 40\"> <defs> <marker id=\"beginArrow\"markerWidth=\"12\"markerHeight=\"12\"refX=\"0\"refY=\"6\"orient=\"auto\"><path d=\"M0,6 L12,0 L12,12 L0,6\" style=\"fill: #000000;\" /></marker><markerid=\"endArrow\"markerWidth=\"12\"markerHeight=\"12\"refX=\"12\"refY=\"6\"orient=\"auto\"><path d=\"M0,0 L12,6 L0,12 L0,0 \" style=\"fill: #000000;\" /></marker></defs><line x1=\"130\"  y1=\"10\" x2=\"12\"   y2=\"35\"style=\"stroke: #006600;marker-start: url(#beginArrow);marker-end: url(#endArrow);\"/></SVG>";
+    //Virker ikke problemer med arrow svg.append(String.format(ArrowTemplate));
     public Svg(double width, double height, String viewbox, double x, double y) {
         this.width = width;
         this.height = height;
@@ -19,7 +22,9 @@ public class Svg {
         this.x = x;
         this.y = y;
         svg.append(String.format(headerTemplate, height, width, viewbox));
+
     }
+
 
     public void addRect(double x, double y, double height, double width){
         svg.append(String.format(rectTemplate, x, y, height, width));

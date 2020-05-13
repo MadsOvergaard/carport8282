@@ -24,6 +24,7 @@ public class CreateCarport extends Command {
         String cladding = request.getParameter("carportMats");
         int stolperAntalLength = 2;
         int stolperAntalWidth = 2;
+        boolean shackFullLength = false;
 
         if (slope == false) {
             roofType = "plasttrapezplader";
@@ -39,6 +40,14 @@ public class CreateCarport extends Command {
             shackLength = Integer.parseInt(request.getParameter("shackLength"));
             shackWidth = Integer.parseInt(request.getParameter("shackWidth"));
         }
+        if (shackWidth == 50){
+            shackWidth = width/2;
+            shackFullLength = false;
+        } else if (shackWidth == 100){
+            shackWidth = width;
+            shackFullLength = true;
+        }
+
         LogicFacade.createCarport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, cladding);
 
 
@@ -58,6 +67,17 @@ public class CreateCarport extends Command {
             svg.addRect(50+i,50,width,4.5); //Spær
         }
 
+        if (shackFullLength == false){
+            svg.addRect(75,75,shackWidth-25,4.5 ); //Shack
+            svg.addRect(75,shackWidth+75-25,4.5,shackLength ); //Shack
+            svg.addRect(75+shackLength-4.5,75+4.5,shackWidth-25-4.5, 4.5); //Shack
+            svg.addRect(75,75,4.5, shackLength); //Shack
+        } else if (shackFullLength == true){
+            svg.addRect(75,75,shackWidth-25-20.5,4.5 ); //Shack
+            svg.addRect(75,shackWidth+75-25-20.5,4.5,shackLength ); //Shack
+            svg.addRect(75+shackLength-4.5,75+4.5,shackWidth-25-4.5-20.5, 4.5); //Shack
+            svg.addRect(75,75,4.5, shackLength); //Shack
+        }
         svg.addRect(50,75+2.4,4.5, length); //Rem
         svg.addRect(50,50+width-25+2.4,4.5, length); //Rem
 
@@ -65,8 +85,7 @@ public class CreateCarport extends Command {
         svg.addRect(50+length-50,75,9.7, 9.7); //Stolpe
         svg.addRect(50+50,50+width-25,9.7, 9.7); //Stolpe
         svg.addRect(50+length-50,50+width-25,9.7, 9.7); //Stolpe
-        svg.addRect(50,50,width, 4.5); //Spær
-        svg.addRect(50+length, 50,width, 4.5); //Spær
+
 
         int antalstolper = stolperAntalLength*stolperAntalWidth;
 
@@ -103,6 +122,13 @@ public class CreateCarport extends Command {
             svg.addRect(50+50,50+(width/2),9.7, 9.7); //Stolpe
             svg.addRect(50+length-50,50+(width/2),9.7, 9.7); //Stolpe
         }
+        svg.addRect(50,50,width, 4.5); //Spær
+        svg.addRect(50+length, 50,width, 4.5); //Spær
+
+
+
+
+
         request.setAttribute("svgdrawing", svg.toString());
 
 
