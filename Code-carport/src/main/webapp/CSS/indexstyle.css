@@ -1,0 +1,57 @@
+/* Import af fonts fra google */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Arvo&display=swap');
+
+
+:root{
+    --light-gray: #2b3032a1;
+    --primary-color: #0D5394;
+    --border: #2b303218;
+    --text-color: #FFFFFF;
+    --Anton:"Anton", sans-serif;
+    --Arvo:"Arvo", serif;
+}
+
+.primary-color{
+    color:var(--primary-color);
+}
+
+.bg-primary-color{
+    background-color: var(--primary-color) !important;
+}
+
+.text-color{
+    color:var(--text-color);
+
+}
+
+.font-Anton{
+    font-family: var(--Anton);
+}
+
+/* header */
+header{
+    background-color: var(--primary-color);
+    font-family: var(--Arvo);
+}
+
+header .site-title{
+    font-family: var(--Anton);
+}
+
+.header-links a{
+    font-size: 0.9em;
+    text-decoration: none;
+    color:white;
+}
+
+
+/* For at få farvet hele siden med en farve blev vi nød til at override bootstraps default ved at være mere specifik */
+html body {
+    background-color: #3184D1;
+}
+
+btn-group1{
+    left: 50%;
+    margin-left: 400px;
+    position: fixed;
+}
