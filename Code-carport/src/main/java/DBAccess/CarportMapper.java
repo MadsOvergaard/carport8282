@@ -7,6 +7,13 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class CarportMapper {
+
+    /**
+     * Create carport.
+     * Tager alle informationerne af den carport som kunden har bestilt og sender dem til databasen
+     *
+     * @param carport tager et carport objekt som parameter
+     */
     public static void createCarport(Carport carport) {
         try {
             Connection con = Connector.connection();
@@ -30,6 +37,13 @@ public class CarportMapper {
         }
     }
 
+    /**
+     * Roof material array list.
+     * En metode som forbinder til databasen og henter alle de materialer som indeholder "Roof" i materialDetail
+     * Den bliver brugt til at udfylde en dropdown menu som kunder kan bruge
+     *
+     * @return Den returnere en ArrayList af strings og det den indeholder er de materialer en kunde kan vælge som tag-beklædning
+     */
     public static ArrayList<String> roofMaterial() {
         ArrayList<String> roofList = new ArrayList<>();
         try {
@@ -48,6 +62,13 @@ public class CarportMapper {
         return roofList;
     }
 
+    /**
+     * Cladding array list.
+     * En metode der forbinder til databasen og henter alle materialer som har "Cladding" i materialDetail
+     * Den bliver brugt til at udfylde en dropdown menu som kunder kan bruge
+     *
+     * @return Den returnere en ArrayList af strings og det den indeholder er de materialer en kunde kan vælge som beklæding til carporten
+     */
     public static ArrayList<String> cladding() {
         ArrayList<String> clad = new ArrayList<>();
         try {
@@ -66,9 +87,14 @@ public class CarportMapper {
         return clad;
     }
 
-    // En metode som henter ID, Materiale og prisen fra vores database putter det i en ArrayList
-    // Bruges til at hvis en medarbejder vil rette en pris i databasen så skal han nok også lige se hvad der er i forvejen
-    public static ArrayList<String> materialList() throws LoginSampleException {
+    /**
+     * Material list array list.
+     * En metode som henter ID, Materiale og prisen fra vores database putter det i en ArrayList
+     * Bruges til at hvis en medarbejder vil rette en pris i databasen så skal han nok også lige se hvad der er i forvejen
+     *
+     * @return Returnere en ArrayList med alle id, type og pris for materialer
+     */
+    public static ArrayList<String> materialList() {
         ArrayList<String> list = null;
         try {
             list = new ArrayList<>();
@@ -84,14 +110,19 @@ public class CarportMapper {
                 list.add(asList);
             }
             return list;
-
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         return list;
     }
 
-    // En metode til at updatere prisen på et materiale ud fra ID'et
+    /**
+     * Update price in db.
+     * En metode til at updatere prisen på et materiale ud fra ID'et
+     *
+     * @param price price er den nye pris på det materiale id man skriver
+     * @param id    id er det materiale id man gerne vil ændre prisen på
+     */
     public static void updatePriceInDB(double price, int id) {
         try {
             Connection con = Connector.connection();
@@ -105,6 +136,17 @@ public class CarportMapper {
         }
     }
 
+    /**
+     * Add material in db.
+     * En metode man skal bruge til at tilføje et nyt materiale til databasen
+     *
+     * @param type   Hvilke type materiale det er
+     * @param length længde på det nye materiale
+     * @param width  bredden på det nye materiale
+     * @param height højden af det nye materiale
+     * @param detail noget informaiton om det nye materiale
+     * @param price  prisen på det nye materiale
+     */
     public static void addMaterialInDB(String type, int length, int width, int height, String detail, int price) {
         try {
             Connection con = Connector.connection();
@@ -123,6 +165,15 @@ public class CarportMapper {
         }
     }
 
+    /**
+     * Stykliste carport carport.
+     * Denne metode bliver brugt til at hente en carport fra databasen ud fra et givet id
+     * carporten bliver returneret og vi bruger den så til når vi skal lave styklisten til den carport
+     *
+     *
+     * @param id id på en carport fra databasen
+     * @return returnere en carport objekt
+     */
     public static Carport styklisteCarport(int id) {
         Carport carport = null;
         try {
@@ -142,7 +193,6 @@ public class CarportMapper {
                 int shackLength = rs.getInt("shackLength");
                 int shackWidth = rs.getInt("shackWidth");
                 String cladding = rs.getString("cladding");
-
                 carport = new Carport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, cladding);
             }
             return carport;
@@ -151,6 +201,4 @@ public class CarportMapper {
         }
         return carport;
     }
-
-
 }

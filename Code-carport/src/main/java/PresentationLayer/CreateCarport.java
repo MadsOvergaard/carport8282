@@ -47,7 +47,6 @@ public class CreateCarport extends Command {
             shackWidth = width;
             shackFullLength = true;
         }
-
         LogicFacade.createCarport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, cladding);
 
 
@@ -85,7 +84,6 @@ public class CreateCarport extends Command {
         svg.addRect(50+length-50,75,9.7, 9.7); //Stolpe
         svg.addRect(50+50,50+width-25,9.7, 9.7); //Stolpe
         svg.addRect(50+length-50,50+width-25,9.7, 9.7); //Stolpe
-
 
         int antalstolper = stolperAntalLength*stolperAntalWidth;
 
@@ -125,13 +123,7 @@ public class CreateCarport extends Command {
         svg.addRect(50,50,width, 4.5); //Spær
         svg.addRect(50+length, 50,width, 4.5); //Spær
 
-
-
-
-
         request.setAttribute("svgdrawing", svg.toString());
-
-
 
         return "Kvittering";
     }

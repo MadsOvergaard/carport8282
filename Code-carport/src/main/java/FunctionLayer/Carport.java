@@ -13,6 +13,21 @@ public class Carport {
     private int shackWidth;
     private String cladding;
 
+    /**
+     * Instantiates a new Carport.
+     * construkter til carport objekter
+     *
+     * @param length          the length
+     * @param width           the width
+     * @param height          the height
+     * @param slope           the slope
+     * @param roofType        the roof type
+     * @param slopeAngle      the slope angle
+     * @param shack           the shack
+     * @param shackLength     the shack length
+     * @param shackWidth      the shack width
+     * @param carportCladding the carport cladding
+     */
     public Carport(int length, int width, int height, boolean slope, String roofType,
                    int slopeAngle, boolean shack, int shackLength, int shackWidth, String carportCladding) {
         this.length = length;

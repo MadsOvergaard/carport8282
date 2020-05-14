@@ -1,6 +1,6 @@
 package FunctionLayer;
 
-public class materials {
+public class Materials {
 
     private String matType;
     private int matLength;
@@ -9,7 +9,7 @@ public class materials {
     private String matDetail;
     private double matPrice;
 
-    public materials(String matType, int matLength, int matWidth, int matHeight, String matDetail, double matPrice) {
+    public Materials(String matType, int matLength, int matWidth, int matHeight, String matDetail, double matPrice) {
         this.matType = matType;
         this.matLength = matLength;
         this.matWidth = matWidth;

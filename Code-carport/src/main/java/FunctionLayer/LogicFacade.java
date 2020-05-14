@@ -6,16 +6,33 @@ import PresentationLayer.StyklisteBeregninger;
 
 public class LogicFacade {
 
+    // ikke vores. bliver ikke brugt til noget
     public static User login(String email, String password) throws LoginSampleException {
         return UserMapper.login(email, password);
     }
-
+    // ikke vores. bliver ikke brugt til noget
     public static User createUser(String email, String password) throws LoginSampleException {
         User user = new User(email, password, "customer");
         UserMapper.createUser(user);
         return user;
     }
 
+    /**
+     * Create carport carport.
+     * Det her er en mellemmand mellem PresentationLayer og DBAccess
+     *
+     * @param length      længden af carporten
+     * @param width       bredden af carporten
+     * @param height      højden af carporten
+     * @param slope       En boolean som hvis er true betyder det at der er rejsning på taget af carporten
+     * @param roofType    teglbeklædningen af carporten
+     * @param slopeAngle  vinklen af carportens tag
+     * @param shack       En boolean som hvis er true betyder at der skal et skur med til carporten
+     * @param shackLength skurets længde
+     * @param shackWidth  skurets bredde
+     * @param cladding    beklædningen af carporten
+     * @return Returnere en carport objekt
+     */
     public static Carport createCarport(int length, int width, int height, boolean slope, String roofType, int slopeAngle,
                                         boolean shack, int shackLength, int shackWidth, String cladding) {
         Carport carport = new Carport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, cladding);
@@ -54,13 +71,11 @@ public class LogicFacade {
             spaer = StyklisteBeregninger.calculateSpaerFladtTag(carport.getLength(), carport.getWidth());
         }
 
-
         if (carport.isShack()) {
             skurPlanker = StyklisteBeregninger.totalPlankerSkur(width, carport.getShackLength());
         } else {
             skurPlanker = "";
         }
-
 
         return stolper + rem + spaer + skurPlanker;
 
