@@ -13,8 +13,6 @@ import static java.lang.Math.pow;
  */
 public class StyklisteBeregninger {
 
-    private static double LosholterSide = 0;
-    private static double LosholterFront = 0;
     private static double VinskederLength = 0;
     private static double WoodLength = 0;
     private static double AntalPlankerSide = 0;
