@@ -71,4 +71,8 @@ primary key(`carportOrdreID`)
 (36, "Eternittag B7 Rødbrun", 0, 0, 0, "Roof", 2000),
 (37, "Eternittag B7 Teglrød", 0, 0, 0, "Roof", 2000),
 (38, "Eternittag B7 Rødflammet", 0, 0, 0, "Roof", 2000),
-(39, "plasttrapezplader", 0, 0, 0, "DefaultRoof", 1500);
+(39, "plasttrapezplader", 0, 0, 0, "DefaultRoof", 1500),
+(40, "Trykimpregneret brædt", 480, 25, 150, "vindskeder på rejsening", 44.33),
+(41, "Trykimpregneret brædt", 540, 25, 150, "vindskeder på rejsening", 48.22),
+(42, "Trykimpregneret brædt", 600, 25, 150, "vindskeder på rejsening", 52.22),
+(43, "Trykimpregneret stolpe", 150, 97, 97, "Det er en stolpe som bestemmer højden, trykimpregneret", 39.0);

@@ -10,7 +10,7 @@ public class CarportMapper {
     public static void createCarport(Carport carport) {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Carport (length, width, height, slope, roof, slopeAngle, shack, shackLength, " +
+            String SQL = "INSERT INTO carport (length, width, height, slope, roof, slopeAngle, shack, shackLength, " +
                     "shackWidth, cladding) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -34,7 +34,7 @@ public class CarportMapper {
         ArrayList<String> roofList = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT materialType FROM Carports.materials WHERE materialDetail = \"Roof \"";
+            String SQL = "SELECT materialType FROM materials WHERE materialDetail = \"Roof \"";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -52,7 +52,7 @@ public class CarportMapper {
         ArrayList<String> clad = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT materialType FROM Carports.materials WHERE materialDetail = \"Cladding \"";
+            String SQL = "SELECT materialType FROM materials WHERE materialDetail = \"Cladding \"";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -73,7 +73,7 @@ public class CarportMapper {
         try {
             list = new ArrayList<>();
             Connection con = Connector.connection();
-            String SQL = "SELECT materialID, materialType, price from Carports.materials";
+            String SQL = "SELECT materialID, materialType, price from materials";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -95,7 +95,7 @@ public class CarportMapper {
     public static void updatePriceInDB(double price, int id) {
         try {
             Connection con = Connector.connection();
-            String SQL = "update Materials set price = ? where materialID = ?";
+            String SQL = "update materials set price = ? where materialID = ?";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setDouble(1, price);
             ps.setInt(2, id);
@@ -108,7 +108,7 @@ public class CarportMapper {
     public static void addMaterialInDB(String type, int length, int width, int height, String detail, int price) {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Materials (materialType, materialLength, materialWidth, materialHeight, materialDetail, price) " +
+            String SQL = "INSERT INTO materials (materialType, materialLength, materialWidth, materialHeight, materialDetail, price) " +
                     "values (?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, type);
@@ -122,4 +122,35 @@ public class CarportMapper {
             e.printStackTrace();
         }
     }
+
+    public static Carport styklisteCarport(int id) {
+        Carport carport = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM carport WHERE carportOrdreID = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                int height = rs.getInt("height");
+                boolean slope = rs.getBoolean("slope");
+                String roofType = rs.getString("roof");
+                int slopeAngle = rs.getInt("slopeAngle");
+                boolean shack = rs.getBoolean("shack");
+                int shackLength = rs.getInt("shackLength");
+                int shackWidth = rs.getInt("shackWidth");
+                String cladding = rs.getString("cladding");
+
+                carport = new Carport(length, width, height, slope, roofType, slopeAngle, shack, shackLength, shackWidth, cladding);
+            }
+            return carport;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return carport;
+    }
+
+
 }

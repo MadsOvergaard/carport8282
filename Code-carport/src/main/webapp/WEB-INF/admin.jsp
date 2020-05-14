@@ -34,6 +34,12 @@
         <input type="submit" value="Updater materiale">
     </form>
 </div>
+<form action="FrontController" method="post">
+    <input type="hidden" name="target" value="stykliste">
+    <p>Indtast id på den carport du vil ha stykliste for</p>
+    <input type="text" name="carportID" placeholder="Skriv ID her">
+    <input type="submit" value="Hent stykliste">
+</form>
 <div class="container">
     <img src="./pics/traestolpe.jpg" alt="Avatar" class="image" style="width:100%">
     <div class="middle">
