@@ -5,6 +5,9 @@ import FunctionLayer.materials;
 import java.util.HashMap;
 import static java.lang.Math.pow;
 
+/**
+ * The type Stykliste beregninger.
+ */
 public class StyklisteBeregninger {
 
     private static double LosholterSide = 0;
@@ -61,7 +64,17 @@ public class StyklisteBeregninger {
         return total;
     }
 
+
     //Pepega stolpe udregner todo Det her er ikke dynamisk!!!
+
+    /**
+     * Calculate stolper string.
+     *
+     * @param length the length
+     * @param width  the width
+     * @param height the height
+     * @return the string
+     */
     public static String calculateStolper(int length, int width, int height) {
         stolperAntalLength = 2;
         stolperAntalWidth = 2;
