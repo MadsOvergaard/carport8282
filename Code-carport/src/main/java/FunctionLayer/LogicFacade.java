@@ -78,7 +78,5 @@ public class LogicFacade {
         }
 
         return stolper + rem + spaer + skurPlanker;
-
     }
-
 }

@@ -32,9 +32,14 @@ public class StyklisteBeregninger {
      * @return double en længde af det skrå stykke af taget
      */
     public static double CalculateVinskederLength(int width, int slopeAngle) {
-        double temp = (width / 2);
-        VinskederLength = 2 * Math.sqrt(Math.pow((temp) * Math.tan(slopeAngle), 2.0) + pow(temp, 2));
-        return VinskederLength;
+        int cWidth = width;
+        int cSlopeAngle = slopeAngle;
+
+        double hosliggende = (cWidth / 2);
+        double modstående = hosliggende * (Math.tan(Math.toRadians(cSlopeAngle)));
+        double hypo = Math.sqrt(Math.pow(modstående, 2.0) + Math.pow(hosliggende, 2.0));
+        double vinskederLength = 2 * hypo;
+        return vinskederLength;
     }
 
     //Udregner Længden af
