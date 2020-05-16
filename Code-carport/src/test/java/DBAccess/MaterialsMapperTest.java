@@ -23,11 +23,12 @@ public class MaterialsMapperTest {
         try {
             if (testConnection == null) {
                 String url = String.format("jdbc:mysql//%s:3306/%s", HOST, DBNAME);
+                //String url = "jdbc:mysql//localhost:3306/carports_test?serverTimezone=CET&useSSL=false";
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 testConnection = DriverManager.getConnection(url, USER, USERPW);
                 Connector.setConnection(testConnection);
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             testConnection = null;
             ex.printStackTrace();
         }
