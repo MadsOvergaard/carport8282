@@ -1,6 +1,7 @@
 package PresentationLayer;
 
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.MissingDataException;
 
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +31,6 @@ abstract class Command {
     }
 
     abstract String execute(HttpServletRequest request, HttpServletResponse response)
-            throws LoginSampleException;
+            throws LoginSampleException, MissingDataException;
 
 }
