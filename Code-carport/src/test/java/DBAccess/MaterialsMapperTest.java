@@ -1,15 +1,14 @@
 package DBAccess;
 
+import FunctionLayer.Materials;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.HashMap;
 
 public class MaterialsMapperTest {
 
@@ -24,7 +23,6 @@ public class MaterialsMapperTest {
         try {
             if (testConnection == null) {
                 String url = String.format("jdbc:mysql://%s:3306/%s", HOST, DBNAME);
-                //String url = "jdbc:mysql//localhost:3306/carports_test?serverTimezone=CET&useSSL=false";
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 testConnection = DriverManager.getConnection(url, USER, USERPW);
                 Connector.setConnection(testConnection);
@@ -57,4 +55,95 @@ public class MaterialsMapperTest {
         assertNotNull(testConnection);
     }
 
+    @Test
+    public void testDatabase01() {
+        HashMap<Integer, Materials> materials = new HashMap<>();
+        Materials mat;
+        try {
+            Connection con = testConnection;
+            String SQL = "SELECT * FROM materials;";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("materialID");
+                String type = rs.getString("materialType");
+                int length = rs.getInt("materialLength");
+                int width = rs.getInt("materialWidth");
+                int height = rs.getInt("materialHeight");
+                String detail = rs.getString("materialDetail");
+                double price = rs.getDouble("price");
+
+                mat = new Materials(type, length, width, height, detail, price);
+                materials.put(id, mat);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        assertTrue(materials != null);
+    }
+
+    @Test
+    public void testDatabase02(){
+        HashMap<Integer, Materials> materials = new HashMap<>();
+        Materials mat;
+        try {
+            Connection con = testConnection;
+            String SQL = "SELECT * FROM materials;";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("materialID");
+                String type = rs.getString("materialType");
+                int length = rs.getInt("materialLength");
+                int width = rs.getInt("materialWidth");
+                int height = rs.getInt("materialHeight");
+                String detail = rs.getString("materialDetail");
+                double price = rs.getDouble("price");
+
+                mat = new Materials(type, length, width, height, detail, price);
+                materials.put(id, mat);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        Materials expectedMat = new Materials("Trykimpregneret stolpe", 300,97,97,"Det er en stolpe som bestemmer højden, trykimpregneret", 39.0);
+        Materials actualMat = materials.get(1);
+
+        assertEquals(expectedMat.getMatType(), actualMat.getMatType());
+        assertEquals(expectedMat.getMatLength(), actualMat.getMatLength());
+        assertEquals(expectedMat.getMatWidth(), actualMat.getMatWidth());
+        assertEquals(expectedMat.getMatHeight(), actualMat.getMatHeight());
+        assertEquals(expectedMat.getMatDetail(), actualMat.getMatDetail());
+        assertEquals(expectedMat.getMatPrice(), actualMat.getMatPrice(), 0);
+    }
+
+    @Test
+    public void testDatabase03(){
+        HashMap<Integer, Materials> materials = new HashMap<>();
+        Materials mat;
+        try {
+            Connection con = testConnection;
+            String SQL = "SELECT * FROM materials;";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("materialID");
+                String type = rs.getString("materialType");
+                int length = rs.getInt("materialLength");
+                int width = rs.getInt("materialWidth");
+                int height = rs.getInt("materialHeight");
+                String detail = rs.getString("materialDetail");
+                double price = rs.getDouble("price");
+
+                mat = new Materials(type, length, width, height, detail, price);
+                materials.put(id, mat);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        Materials expectedMat = new Materials("Trykimpregneret stolpe", 300,97,97,"Det er en stolpe som bestemmer højden, trykimpregneret", 39.0);
+        Materials actualMat = materials.get(2);
+
+        assertNotEquals(expectedMat.getMatType(), actualMat.getMatType());
+    }
 }
