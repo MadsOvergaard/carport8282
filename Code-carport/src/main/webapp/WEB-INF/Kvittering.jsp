@@ -8,5 +8,6 @@
 <body>
     <h1>Drawing Page</h1>
     ${requestScope.svgdrawing}
+    ${requestScope.svg2drawing}
 </body>
 </html>

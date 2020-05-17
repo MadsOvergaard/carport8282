@@ -26,6 +26,7 @@ public class CreateCarport extends Command {
         int stolperAntalWidth = 2;
         boolean shackFullLength = false;
 
+
         if (slope == false) {
             roofType = "plasttrapezplader";
             slopeAngle = 0;
@@ -124,6 +125,29 @@ public class CreateCarport extends Command {
         svg.addRect(50 + length, 50, width, 4.5); //Spær
 
         request.setAttribute("svgdrawing", svg.toString());
+
+        double vinskederLength = StyklisteBeregninger.CalculateVinskederLength(width,slopeAngle);
+        // SVG tegning for fronten
+        Svg svg2 = new Svg(1000, 1000, "0,0,1000,1000", 0, 0);
+
+        if (stolperAntalWidth == 2){
+            svg2.addRect(100, 1000-100-height, height, 9.7); //Stolpe
+            svg2.addRect(100+width-100-9.7, 1000-100-height, height, 9.7); //Stolpe
+        } else if (stolperAntalWidth == 3){
+            svg2.addRect(100, 1000-100-height, height, 9.7); //Stolpe
+            svg2.addRect(100+width-100-9.7, 1000-100-height, height, 9.7); //Stolpe
+            svg2.addRect(100+((width-100)/2), 1000-100-height, height, 9.7); //Stolpe
+        }
+        if (slope == false) {
+            svg2.addRect(50, 1000 - 100 - height - 20, 20, width); //Understernbrædt
+            svg2.addRect(50, 1000 - 100 - height - 20, 12.5, width); //Oversternbrædt
+        } else if (slope == true){
+            //svg2.addLineRect(50, 1000 - 100 - height - 20, 100+((width-100)/2),200, 20, 300 ); //Oversternbrædt
+            svg2.addRect(50, 1000 - 100 - height - 20, 20, width); //Understernbrædt
+            svg2.addRectRotate(50, 1000 - 100 - height - 20, 12.5, vinskederLength/2 , -slopeAngle, 50, 1000-100-height-20); //Oversternbrædt
+            svg2.addRectRotate(50+width, 1000 - 100 - height - 20 - 12.5, 12.5, vinskederLength/2 , 180+slopeAngle, 50+width, 1000-100-height-20); //Oversternbrædt
+        }
+        request.setAttribute("svg2drawing", svg2.toString());
 
         return "Kvittering";
     }
