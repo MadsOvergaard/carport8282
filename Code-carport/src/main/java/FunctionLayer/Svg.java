@@ -8,7 +8,7 @@ public class Svg {
     private double x;
     private double y;
     private StringBuilder svg = new StringBuilder();
-    private final String headerTemplate = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"%s\" width=\"%s\" viewbox\"%s\" preserveAspectRatio=\"xMinY;om\">";
+    private final String headerTemplate = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"%s\" width=\"%s\" viewbox=\"%s\" preserveAspectRatio=\"xMinY;om\">";
     private final String rectTemplate = "<rect x=\"%f\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"Stroke:#000000; fill: #ffffff\" />";
     private final String rectRotateTemplate = "<rect x=\"%f\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"Stroke:#000000; fill: #ffffff\" transform=\"rotate(%f, %f, %f)\" />";
     //private final String rectLineTemplate = "<line x1=\"%f\"  y1=\"%f\" x2=\"%f\"   y2=\"%f\"style=\"stroke: #000000; fill: #ffffff\" />";

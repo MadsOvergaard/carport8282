@@ -52,7 +52,7 @@ public class CreateCarport extends Command {
 
 
         //SVG STARTER HER --- SVG STARTER HER --- SVG STARTER HER
-        Svg svg = new Svg(1000, 1000, "0,0,1000,1000", 0, 0);
+        Svg svg = new Svg(600, 600, "0,0,1000,1000", 500, 500);
         svg.addRect(50, 50, width, length); //Carport omrids
 
         if (length > 420 && length <= 630) {
@@ -128,7 +128,7 @@ public class CreateCarport extends Command {
 
         double vinskederLength = StyklisteBeregninger.CalculateVinskederLength(width,slopeAngle);
         // SVG tegning for fronten
-        Svg svg2 = new Svg(1000, 1000, "0,0,1000,1000", 0, 0);
+        Svg svg2 = new Svg(600, 600, "0,0,1000,1000", 0, 0);
 
         if (stolperAntalWidth == 2){
             svg2.addRect(100, 1000-100-height, height, 9.7); //Stolpe

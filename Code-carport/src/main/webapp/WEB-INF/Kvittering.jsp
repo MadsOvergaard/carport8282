@@ -6,8 +6,9 @@
     <title>Kvittering</title>
 </head>
 <body>
-    <h1>Drawing Page</h1>
+    <h1>Carport set ovenfra</h1>
     ${requestScope.svgdrawing}
+    <h1>Carport set fra fronten</h1>
     ${requestScope.svg2drawing}
 </body>
 </html>
