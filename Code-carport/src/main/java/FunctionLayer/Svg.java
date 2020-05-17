@@ -11,16 +11,14 @@ public class Svg {
     private final String headerTemplate = "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"%s\" width=\"%s\" viewbox=\"%s\" preserveAspectRatio=\"xMinY;om\">";
     private final String rectTemplate = "<rect x=\"%f\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"Stroke:#000000; fill: #ffffff\" />";
     private final String rectRotateTemplate = "<rect x=\"%f\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"Stroke:#000000; fill: #ffffff\" transform=\"rotate(%f, %f, %f)\" />";
-    //private final String rectLineTemplate = "<line x1=\"%f\"  y1=\"%f\" x2=\"%f\"   y2=\"%f\"style=\"stroke: #000000; fill: #ffffff\" />";
-    //private final String arrowTemplate = "<SVG width=\"25%\" viewBox=\"0 0 150 40\"> <defs> <marker id=\"beginArrow\"markerWidth=\"12\"markerHeight=\"12\"refX=\"0\"refY=\"6\"orient=\"auto\"><path d=\"M0,6 L12,0 L12,12 L0,6\" style=\"fill: #000000;\" /></marker><markerid=\"endArrow\"markerWidth=\"12\"markerHeight=\"12\"refX=\"12\"refY=\"6\"orient=\"auto\"><path d=\"M0,0 L12,6 L0,12 L0,0 \" style=\"fill: #000000;\" /></marker></defs><line x1=\"130\"  y1=\"10\" x2=\"12\"   y2=\"35\"style=\"stroke: #006600;marker-start: url(#beginArrow);marker-end: url(#endArrow);\"/></SVG>";
 
     /**
      * Instantiates a new Svg.
      * construktor til svg tegning
-     * svg.append
      *
-     * @param width   the width
-     * @param height  the height
+     *
+     * @param width   Tegningens bredde
+     * @param height  tegningens højde
      * @param viewbox the viewbox
      * @param x       the x
      * @param y       the y
@@ -35,18 +33,14 @@ public class Svg {
 
     }
 
-
-    public void addRect(double x, double y, double height, double width){
+    public void addRect(double x, double y, double height, double width) {
         svg.append(String.format(rectTemplate, x, y, height, width));
     }
 
-    public void addRectRotate(double x, double y, double height, double width, double rotate, double rotatex, double rotatey){
+    public void addRectRotate(double x, double y, double height, double width, double rotate, double rotatex, double rotatey) {
         svg.append(String.format(rectRotateTemplate, x, y, height, width, rotate, rotatex, rotatey));
     }
 
-    //public void addLineRect(double x1, double y1, double x2, double y2, double height, double width){
-    //    svg.append(String.format(rectLineTemplate, x1, y1, x2, y2, height, width));
-    //}
     public double getWidth() {
         return width;
     }
@@ -88,6 +82,6 @@ public class Svg {
     }
 
     public String toString() {
-        return svg.toString() + "</svg>" ;
+        return svg.toString() + "</svg>";
     }
 }
