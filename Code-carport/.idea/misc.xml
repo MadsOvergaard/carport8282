@@ -8,7 +8,7 @@
     <option name="languageLevel" value="ES6" />
   </component>
   <component name="JavadocGenerationManager">
-    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/doc" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../docs" />
     <option name="LOCALE" value="da_DK" />
   </component>
   <component name="MavenProjectsManager">
