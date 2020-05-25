@@ -42,7 +42,7 @@ public class CarportMapper {
      * En metode som forbinder til databasen og henter alle de materialer som indeholder "Roof" i materialDetail
      * Den bliver brugt til at udfylde en dropdown menu som kunder kan bruge
      *
-     * @return Den returnere en ArrayList af strings og det den indeholder er de materialer en kunde kan vælge som tag-beklædning
+     * @return ArrayList Den returnere en ArrayList af strings og det den indeholder er de materialer en kunde kan vælge som tag-beklædning
      */
     public static ArrayList<String> roofMaterial() {
         ArrayList<String> roofList = new ArrayList<>();
