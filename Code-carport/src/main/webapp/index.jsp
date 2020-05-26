@@ -29,20 +29,19 @@
 
     </div>
         <div class="col-md-4 col-12 text-center">
-            <h2 class="my-md-5 site-title text-white">Byg din carport her</h2>
+            <h1 class="my-md-5 site-title text-white">Byg din carport her</h1>
         </div>
-     <div class="col-md-4 col-12 text-right">
-         <p class="my-md-4 header-links">
-           <a href="WEB-INF/admin.jsp" class="px-1">Admin Side</a>
-         </p>
-     </div>
+        <form action="FrontController" method="post">
+            <input type="hidden" name="target" value="admin">
+            <input type="submit" value="Admin">
+        </form>
     </div>
 
 </header>
 <!--header-->
 
 <main>
-    <h2 class="my-md-5 text-center text-white">Vælg dimensioner til carporten</h2>
+    <h2 class="my-md-5 text-center text-black">Vælg dimensioner til carporten</h2>
     <div class="container">
         <div class="form-group" style="text-align:center">
     <form action="FrontController" method="post">
@@ -69,13 +68,6 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-
-
-
-<form action="FrontController" method="post">
-    <input type="hidden" name="target" value="admin">
-    <input type="submit" value="adminsiden version alpha 1.0">
-</form>
 
 <c:if test="${requestScope.error!= null}">
     <h2>Error ! </h2>

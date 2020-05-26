@@ -1,14 +1,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@page import="DBAccess.CarportMapper" %>
-<h2 class="my-md-3 text-center text-white">Skal taget være med rejsning</h2>
-<h3 class="my-md-3 text-center text-white">Hvis nej kommer taget med at plasttrapezplader </h3>
+<h2 class="my-md-3 text-center text-black">Skal taget være med rejsning</h2>
+<h5 class="my-md-3 text-center text-black">Hvis nej kommer taget med at plasttrapezplader </h5>
 <input type="radio" name="checkbox" value="yes" onchange="check3()" checked/> Nej
 <input type="radio" name="checkbox" value="True" onchange="check4()"/> Ja
 <br>
-
-<h2 class="my-md-5 text-center text-white">Hvis du har valgt rejsning så kan du vælge tagtype og hældning her</h2>
-
 
 <div class="dropdown" >
     <select  name="roofType" id="roofType" disabled>
