@@ -7,7 +7,8 @@
 <input type="radio" name="checkbox" value="True" onchange="check4()"/> Ja
 <br>
 
-<h2>Hvis du har valgt rejsning så kan du vælge tagtype og hældning her</h2>
+<h2 class="my-md-5 text-center text-white">Hvis du har valgt rejsning så kan du vælge tagtype og hældning her</h2>
+
 
 <div class="dropdown" >
     <select  name="roofType" id="roofType" disabled>

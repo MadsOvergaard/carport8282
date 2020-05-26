@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@page import="DBAccess.CarportMapper" %>
 
-<h2>Vælg beklædning til carporten og skuret her</h2>
+<h2 class="my-md-5 text-center text-white">Vælg beklædning til carporten og skuret her</h2>
 
 <div class="dropdown">
     <select  name="carportMats">
