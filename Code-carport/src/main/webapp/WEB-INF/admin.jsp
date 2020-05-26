@@ -7,12 +7,29 @@
     <meta name="viewport" content="with=device-width">
     <title>Admin</title>
 
+    <!--custom stylesheet-->
+    <link rel="stylesheet" href="CSS/indexstyle.css" type="text/css">
 </head>
+<header>
+    <div class="container"></div>
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-12">
+            <img src="./pics/foglogo.jpg" class="img-fluid" alt="Responsive image">
+
+        </div>
+
+        <h2 class="my-md-5 text-right text-color">Admin Side</h2>
+
+
+    </div>
+
+</header>
 <body>
 <div>
     ${requestScope.materialList}
 </div>
 <div>
+
     <p>Updater prisen på noget her</p>
     <form action="FrontController" method="post">
         <input type="hidden" name="target" value="updateDBPrice">
@@ -41,7 +58,7 @@
     <input type="submit" value="Hent stykliste">
 </form>
 <div class="container">
-    <img src="./pics/traestolpe.jpg" alt="Avatar" class="image" style="width:100%">
+    <img src="./pics/traestolpe.jpg" alt="Avatar" class="image" style="width:100%; length:100%;">
     <div class="middle">
         <div class="text">Træstolpen er en opretstående, fast forankret bjælke, der støtter eller bærer øvrige dele
             i en bygningskonstruktion
