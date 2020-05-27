@@ -17,7 +17,7 @@ public class CarportMapper {
     public static void createCarport(Carport carport) {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO carport (length, width, height, slope, roof, slopeAngle, shack, shackLength, " +
+            String SQL = "INSERT INTO Carport (length, width, height, slope, roof, slopeAngle, shack, shackLength, " +
                     "shackWidth, cladding) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -178,7 +178,7 @@ public class CarportMapper {
         Carport carport = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM carport WHERE carportOrdreID = ?";
+            String SQL = "SELECT * FROM Carport WHERE carportOrdreID = ?";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
